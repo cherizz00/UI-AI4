@@ -10,20 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout source code
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm install
 
-      - name: Build Vite app
+      # 4️⃣ Build React (Vite → dist/)
+      - name: Build frontend
         run: npm run build
 
+      # 5️⃣ Prepare temp directory on VPS (SAFE)
       - name: Prepare release directory on VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -35,6 +40,7 @@ jobs:
             rm -rf /var/www/html_new
             mkdir -p /var/www/html_new
 
+      # 6️⃣ Upload build files to temp directory
       - name: Upload build files
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -44,6 +50,7 @@ jobs:
           source: "dist/*"
           target: "/var/www/html_new"
 
+      # 7️⃣ Atomic switch (ZERO downtime)
       - name: Activate deployment
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -56,4 +63,3 @@ jobs:
             mv /var/www/html /var/www/html_old
             mv /var/www/html_new /var/www/html
             chown -R deploy:deploy /var/www/html
-            sudo systemctl reload nginx
