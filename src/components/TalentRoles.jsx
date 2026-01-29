@@ -53,7 +53,7 @@ const TalentRoles = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                    {/* Connecting Line (Desktop) */}
+
                     <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-black/10 to-transparent -z-10" />
 
                     {roadmapSteps.map((step, i) => (
@@ -66,7 +66,7 @@ const TalentRoles = () => {
                             className="relative group"
                         >
                             <div className="flex flex-col items-center text-center">
-                                {/* Icon Node */}
+
                                 <div className={`w-24 h-24 rounded-3xl ${i === 0 ? 'glass-card border-brand-orange/30 shadow-[0_0_30px_rgba(255,159,67,0.2)]' : 'glass-card'} flex items-center justify-center mb-8 relative z-10 transition-transform duration-500 group-hover:scale-110`}>
                                     <step.icon size={32} className={i === 0 ? 'text-brand-orange' : 'text-slate-700'} />
                                     {i === 0 && (
@@ -76,7 +76,7 @@ const TalentRoles = () => {
                                     )}
                                 </div>
 
-                                {/* Content Card */}
+
                                 <div className="glass-card p-8 rounded-3xl w-full min-h-[280px] flex flex-col items-center hover:bg-white transition-colors">
                                     <span className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${i === 0 ? 'text-brand-orange' : 'text-slate-400'}`}>
                                         {step.phase}

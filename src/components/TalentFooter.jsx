@@ -20,7 +20,7 @@ const footerLinks = [
 const TalentFooter = () => {
     return (
         <footer className="pt-12 md:pt-16 pb-8 md:pb-12 bg-transparent border-t border-black/5 relative overflow-hidden">
-            {/* Background Glow */}
+
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1 bg-brand-orange shadow-[0_0_150px_40px_rgba(255,159,67,0.2)]" />
 
             <div className="container max-w-7xl mx-auto px-6 md:px-12">

@@ -99,7 +99,7 @@ const TalentPricing = () => {
                 </div>
             </div>
 
-            {/* Background Glows for Pricing */}
+
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none z-[-1]" />
         </section>
     );

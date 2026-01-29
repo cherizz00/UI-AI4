@@ -13,7 +13,7 @@ const TalentCTA = () => {
                     transition={{ duration: 0.8 }}
                     className="glass-card p-10 md:p-16 rounded-[40px] md:rounded-[56px] relative overflow-hidden group shadow-2xl"
                 >
-                    {/* Background Shine */}
+
                     <div className="absolute inset-0 bg-gradient-to-tr from-brand-orange/5 via-white/50 to-brand-orange/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none" />
 
                     <h2 className="text-fluid-h2 font-serif tracking-tight mb-8 md:mb-12 text-slate-900 relative z-10">
@@ -31,13 +31,13 @@ const TalentCTA = () => {
                         </button>
                     </div>
 
-                    {/* Decorative Elements */}
+
                     <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/10 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-orange/10 blur-[80px] rounded-full translate-y-1/2 -translate-x-1/2" />
                 </motion.div>
             </div>
 
-            {/* Background Decor */}
+
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-full bg-brand-orange/5 blur-[100px] md:blur-[140px] rounded-full pointer-events-none -z-10" />
         </section>
     );

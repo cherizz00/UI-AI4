@@ -52,7 +52,7 @@ const TalentIntelligenceFeed = () => {
         const interval = setInterval(() => {
             const nextSignals = [...signals];
             const first = nextSignals.shift();
-            // Simulate varied signal types
+
             const types = ['BULLISH', 'BEARISH'];
             const type = types[Math.floor(Math.random() * types.length)];
 
@@ -162,7 +162,7 @@ const TalentIntelligenceFeed = () => {
                                 </AnimatePresence>
                             </div>
 
-                            {/* Performance Ticker - Live Simulated Data */}
+
                             <div className="border-t border-black/5 bg-white/60 backdrop-blur-md py-4 ticker-container">
                                 <div className="ticker-content gap-16">
                                     {[...tickers, ...tickers].map((ticker, i) => (

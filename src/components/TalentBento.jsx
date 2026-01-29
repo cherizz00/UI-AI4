@@ -87,7 +87,7 @@ const TalentBento = () => {
                             transition={{ duration: 0.5, delay: i * 0.1 }}
                             className={`glass-card rounded-[40px] md:rounded-[56px] p-10 md:p-14 flex flex-col justify-between group overflow-hidden relative cursor-default ${item.className} ${item.shimmer ? 'shimmer' : ''}`}
                         >
-                            {/* Spotlight Effect */}
+
                             <motion.div
                                 className="pointer-events-none absolute -inset-px rounded-2xl md:rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
                                 style={{
@@ -118,7 +118,7 @@ const TalentBento = () => {
                                 </p>
                             </div>
 
-                            {/* Decorative Background Element */}
+
                             <div className="absolute -bottom-8 -right-8 md:-bottom-12 md:-right-12 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
                                 <item.icon size={140} className="md:w-[200px] md:h-[200px]" />
                             </div>

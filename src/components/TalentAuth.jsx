@@ -18,7 +18,7 @@ const TalentAuth = ({ setView }) => {
 
     return (
         <div className="min-h-screen flex items-center justify-center relative overflow-hidden p-6">
-            {/* Ambient Background */}
+
             <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-brand-orange/20 rounded-full blur-[120px] pointer-events-none opacity-50" />
             <div className="absolute bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-brand-periwinkle/20 rounded-full blur-[100px] pointer-events-none opacity-40" />
 
@@ -27,7 +27,7 @@ const TalentAuth = ({ setView }) => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="w-full max-w-md relative z-10"
             >
-                {/* Back Button */}
+
                 <button
                     onClick={() => setView('landing')}
                     className="absolute -top-16 left-0 flex items-center gap-2 text-slate-500 hover:text-brand-orange transition-colors text-sm font-bold uppercase tracking-widest group"

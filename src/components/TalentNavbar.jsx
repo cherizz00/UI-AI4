@@ -29,14 +29,14 @@ const TalentNavbar = ({ setView }) => {
                 >
 
 
-                    {/* Logo Left - scaled and icon removed */}
+
                     <a href="/" className="flex items-center group shrink-0 relative z-10">
                         <span className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tighter text-slate-900">
                             <span className="text-fade" style={{ letterSpacing: '-0.5px' }}>AI4</span>INVEST
                         </span>
                     </a>
 
-                    {/* Fluid Navigation Links - Centered via flex-1 and justify-center to prevent overlap */}
+
                     <div className="hidden xl:flex flex-1 items-center justify-center gap-10 xl:gap-12 relative z-10 px-6">
                         {navLinks.map((link) => (
                             <a
@@ -49,7 +49,7 @@ const TalentNavbar = ({ setView }) => {
                         ))}
                     </div>
 
-                    {/* Auth Actions Right */}
+
                     <div className="hidden sm:flex items-center gap-6 md:gap-8 shrink-0 relative z-10">
                         <button
                             onClick={() => setView('auth')}
@@ -64,14 +64,14 @@ const TalentNavbar = ({ setView }) => {
                         </Magnetic>
                     </div>
 
-                    {/* Mobile/Tablet Menu Button - Shows on lg and below to protect the layout */}
+
                     <button className="xl:hidden text-black p-2 relative z-10" onClick={() => setIsOpen(!isOpen)}>
                         {isOpen ? <X size={20} className="md:w-6 md:h-6" /> : <Menu size={20} className="md:w-6 md:h-6" />}
                     </button>
                 </motion.div>
             </div>
 
-            {/* Mobile Menu Overlay */}
+
             <AnimatePresence>
                 {isOpen && (
                     <>

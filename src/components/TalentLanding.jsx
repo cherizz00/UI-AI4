@@ -35,7 +35,7 @@ const TalentLanding = ({ setView }) => {
                     <TalentWhatWeDo />
                 </SectionReveal>
 
-                {/* Subtle Decorative Transition */}
+
                 <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
                 <SectionReveal type="slide-left">

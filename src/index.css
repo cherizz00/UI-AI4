@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "tailwindcss";
 
-/* Legacy fonts removed in favor of Citadel.com structure */
-
 @theme {
     --color-base-black: #000000;
     --color-base-white: #FFFFFF;
     --color-brand-orange: #FF9F43;
-    /* Updated to Light Orange as requested */
     --color-slate-400: #94A3B8;
     --color-slate-500: #64748B;
     --color-slate-600: #475569;
@@ -21,7 +18,6 @@
     --shadow-glow: 0 0 50px -10px rgba(255, 159, 67, 0.4);
     --color-beam: rgba(255, 159, 67, 0.4);
 
-    /* Global Brand Gradient - Black to Orange */
     --brand-gradient: linear-gradient(180deg, #000000 0%, #FF9F43 100%);
 }
 
@@ -141,7 +137,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Fluid Typography Utilities */
 @utility text-fluid-h1 {
     font-family: var(--font-serif);
     font-size: clamp(2.5rem, 8vw + 1rem, 6rem);
@@ -164,7 +159,6 @@
     letter-spacing: -0.01em;
 }
 
-/* Tighter Section Spacing */
 @utility section-py {
     padding-top: clamp(4rem, 10vh, 8rem);
     padding-bottom: clamp(4rem, 10vh, 8rem);
@@ -180,7 +174,6 @@
 
 @utility text-soft {
     color: #1e293b;
-    /* Slate-800 for softer body text */
 }
 
 @utility glass-100 {
@@ -369,7 +362,6 @@
         color: white;
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
         width: 6px;
     }
@@ -388,18 +380,12 @@
     }
 }
 
-/* ========================================
-   PREMIUM UTILITY CLASSES
-   ======================================== */
-
-/* Monospace data display styling */
 @utility mono-data {
     font-family: "SF Mono", "Fira Code", "Monaco", monospace;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.02em;
 }
 
-/* Premium shadow effects */
 @utility shadow-3xl {
     box-shadow:
         0 25px 50px -12px rgba(0, 0, 0, 0.15),
@@ -421,7 +407,6 @@
         0 24px 48px rgba(0, 0, 0, 0.06);
 }
 
-/* Gradient border effect */
 @utility gradient-border {
     position: relative;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
@@ -441,7 +426,6 @@
     }
 }
 
-/* Animated gradient background */
 @utility animated-gradient {
     background: linear-gradient(-45deg, #000000, #1a1a1a, #FF8C00, #cc7000);
     background-size: 400% 400%;
@@ -462,7 +446,6 @@
     }
 }
 
-/* Float animation for data points */
 @utility data-float {
     font-family: "SF Mono", monospace;
     font-size: 10px;
@@ -492,7 +475,6 @@
     }
 }
 
-/* Ticker animation */
 @utility ticker-container {
     overflow: hidden;
     white-space: nowrap;
@@ -513,7 +495,6 @@
     }
 }
 
-/* Spin animations */
 @utility animate-spin-slow {
     animation: spin 30s linear infinite;
 }
@@ -532,7 +513,6 @@
     }
 }
 
-/* Pulse glow */
 @utility pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
 }
@@ -549,7 +529,6 @@
     }
 }
 
-/* Premium card hover effect */
 @utility premium-card {
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -561,12 +540,10 @@
     }
 }
 
-/* Text glow effect */
 @utility text-glow {
     text-shadow: 0 0 20px rgba(255, 159, 67, 0.3), 0 0 40px rgba(255, 159, 67, 0.1);
 }
 
-/* Subtle float animation for elements */
 @utility float {
     animation: subtle-float 6s ease-in-out infinite;
 }
@@ -583,7 +560,6 @@
     }
 }
 
-/* Breathing glow for live indicators */
 @utility breathing-glow {
     animation: breathing 3s ease-in-out infinite;
 }
@@ -602,7 +578,6 @@
     }
 }
 
-/* Reveal animation on scroll */
 @utility reveal-up {
     animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -619,7 +594,6 @@
     }
 }
 
-/* Word Reveal Animation */
 @utility word-reveal {
     display: inline-block;
     overflow: hidden;
@@ -638,7 +612,6 @@
     }
 }
 
-/* Stagger children animation helper */
 @utility stagger-children {
     &>* {
         opacity: 0;
@@ -670,7 +643,6 @@
     }
 }
 
-/* Premium button hover */
 @utility btn-premium {
     position: relative;
     overflow: hidden;
@@ -699,7 +671,6 @@
     }
 }
 
-/* Glowing border animation */
 @utility animated-border {
     position: relative;
 
@@ -731,7 +702,6 @@
     }
 }
 
-/* Noise texture overlay */
 @utility noise-overlay {
     position: relative;
 
@@ -746,7 +716,6 @@
     }
 }
 
-/* Interactive focus ring */
 @utility focus-ring {
     &:focus-visible {
         outline: none;
@@ -754,8 +723,6 @@
     }
 }
 
-/* Glass card with hover lift */
-/* Apple-Style Glass Card */
 @utility glass-card {
     background: rgba(255, 255, 255, 0.65);
     backdrop-filter: blur(50px) saturate(180%);
@@ -778,7 +745,6 @@
     }
 }
 
-/* Apple-Style Navigation Glass */
 @utility ultra-glass {
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(60px) saturate(200%);

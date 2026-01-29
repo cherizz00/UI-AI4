@@ -50,7 +50,7 @@ const TalentHero = () => {
 
     return (
         <section className="relative min-h-[85vh] lg:min-h-[90vh] bg-transparent text-black pt-28 md:pt-36 lg:pt-44 pb-20 overflow-hidden flex flex-col items-center justify-start text-center section-py">
-            {/* Precision Background - Data Float */}
+
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-10">
                 {dataPoints.map(p => (
                     <div
@@ -70,7 +70,7 @@ const TalentHero = () => {
             </div>
 
             <div className="container relative z-10 max-w-5xl mx-auto px-10 md:px-16">
-                {/* Institutional Badge */}
+
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -94,7 +94,7 @@ const TalentHero = () => {
                     </h1>
                 </motion.div>
 
-                {/* Subheadline */}
+
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -106,7 +106,7 @@ const TalentHero = () => {
                     Institutional-grade pre-market intelligence reports delivered to your inbox every morning at 8:00 AM IST.
                 </motion.p>
 
-                {/* Subscription Input */}
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ const TalentHero = () => {
 
             </div>
 
-            {/* Logo Cloud */}
+
             <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
