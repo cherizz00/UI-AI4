@@ -45,9 +45,45 @@ const dataPoints = Array.from({ length: 20 }, (_, i) => ({
     delay: Math.random() * 10
 }));
 
+const TypingWord = () => {
+    const words = ["Market", "Noise", "Algos", "Vols", "Sentiment"];
+    const [index, setIndex] = React.useState(0);
+    const [subIndex, setSubIndex] = React.useState(0);
+    const [reverse, setReverse] = React.useState(false);
+
+    // typeWriter effect
+    useEffect(() => {
+        if (subIndex === words[index].length + 1 && !reverse) {
+            setTimeout(() => setReverse(true), 1500);
+            return;
+        }
+
+        if (subIndex === 0 && reverse) {
+            setReverse(false);
+            setIndex((prev) => (prev + 1) % words.length);
+            return;
+        }
+
+        const timeout = setTimeout(() => {
+            setSubIndex((prev) => prev + (reverse ? -1 : 1));
+        }, Math.max(reverse ? 50 : 100, Math.random() * 150));
+
+        return () => clearTimeout(timeout);
+    }, [subIndex, index, reverse]);
+
+    return (
+        <span className="relative inline-block min-w-[3ch] md:min-w-[4ch] text-brand-orange">
+            {words[index].substring(0, subIndex)}
+            <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                className="inline-block w-[2px] h-[0.8em] bg-brand-orange ml-1 align-middle"
+            />
+        </span>
+    );
+};
+
 const TalentHero = () => {
-
-
     return (
         <section className="relative min-h-[70vh] lg:min-h-[90vh] bg-transparent text-black pt-24 md:pt-36 lg:pt-44 pb-8 overflow-hidden flex flex-col items-center justify-start text-center section-py">
 
@@ -86,7 +122,7 @@ const TalentHero = () => {
                     className="mb-6 md:mb-10"
                 >
                     <h1 className="text-fluid-h1 max-w-4xl mx-auto italic">
-                        Beat the Market
+                        Beat the <TypingWord />
                         <br />
                         <span className="not-italic bg-gradient-to-r from-slate-900 via-slate-800 to-brand-orange bg-clip-text text-transparent underline decoration-brand-orange/50 underline-offset-8">
                             Before the Bell.
