@@ -4,47 +4,47 @@ import { BrainCircuit, Database, ShieldCheck, LineChart, Zap, Globe, Fingerprint
 
 const bentoItems = [
     {
-        title: "Model Intelligence",
-        description: "Proprietary LLMs trained on decades of high-frequency tick data and institutional research.",
-        icon: BrainCircuit,
+        title: "The Daily Brief",
+        description: "Your 5-minute pre-market edge. Delivered at 8:00 AM, widely read by top fund managers.",
+        icon: Globe,
         className: "md:col-span-2 md:row-span-2",
-        color: "text-brand-periwinkle",
+        color: "text-brand-orange",
         shimmer: true
     },
     {
-        title: "Liquidity Models",
-        description: "Analyze market microstructure to find hidden liquidity and execute with zero slippage.",
+        title: "Agentic AI Browser",
+        description: "Autonomous agents that track macro trends and regime shifts.",
+        icon: BrainCircuit,
+        className: "md:col-span-1 md:row-span-1",
+        color: "text-slate-900"
+    },
+    {
+        title: "LLM Reasoning",
+        description: "Transformer-based narrative synthesis connecting global signals to Indian equities.",
         icon: Database,
-        className: "md:col-span-1 md:row-span-1",
-        color: "text-brand-lavender"
-    },
-    {
-        title: "Alpha Signals",
-        description: "High-conviction trading signals generated through a combination of ML and quant frameworks.",
-        icon: LineChart,
         className: "md:col-span-1 md:row-span-2",
-        color: "text-orange-400"
+        color: "text-brand-orange"
     },
     {
-        title: "Risk Guard",
-        description: "Real-time hedging and exposure monitoring across all global asset classes.",
-        icon: ShieldCheck,
+        title: "Full Equity Research",
+        description: "Phase 2 expansion into long-term, data-backed company analysis.",
+        icon: LineChart,
         className: "md:col-span-1 md:row-span-1",
-        color: "text-emerald-400"
+        color: "text-slate-900"
     },
     {
-        title: "Deep Sentiment",
-        description: "NLP engines processing millions of news feeds and social signals in real-time.",
+        title: "Personalized AI",
+        description: "An assistant that adapts to your research style and depth.",
         icon: Fingerprint,
         className: "md:col-span-1 md:row-span-1",
-        color: "text-pink-400"
+        color: "text-brand-orange"
     },
     {
-        title: "Global Execution",
-        description: "High-bandwidth gateway to 100+ global exchanges with nanosecond latency.",
-        icon: Globe,
+        title: "Institutional Depth",
+        description: "Hedge-fund-style macro insight without information overload.",
+        icon: ShieldCheck,
         className: "md:col-span-2 md:row-span-1",
-        color: "text-brand-periwinkle",
+        color: "text-slate-900",
         shimmer: true
     }
 ];
@@ -60,24 +60,24 @@ const TalentBento = () => {
     };
 
     return (
-        <section id="features" className="py-16 sm:py-24 bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-6">
+        <section id="features" className="section-py bg-transparent overflow-hidden">
+            <div className="container max-w-7xl mx-auto px-6 md:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-beautique tracking-tight mb-4 md:mb-6">
-                            Intelligence, <span className="brand-highlight text-3xl sm:text-4xl">unbound.</span>
+                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-4 md:mb-6 text-slate-900 leading-tight">
+                            Platform <span className="text-fade">Expansion.</span>
                         </h2>
-                        <p className="text-slate-400 text-sm md:text-base font-light opacity-70">
-                            The same frameworks used by the world's most elite hedge funds, now available for your capital.
+                        <p className="text-slate-800 text-sm md:text-base font-semibold">
+                            From daily pre-market intelligence to a full AI-powered equity research platform.
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-[180px] sm:auto-rows-[220px] relative group/grid" onMouseMove={handleMouseMove}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-[200px] sm:auto-rows-[240px] relative group/grid" onMouseMove={handleMouseMove}>
                     {bentoItems.map((item, i) => (
                         <motion.div
                             key={i}
@@ -85,42 +85,42 @@ const TalentBento = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: i * 0.1 }}
-                            className={`glass border border-white/10 rounded-2xl md:rounded-[32px] p-6 md:p-9 flex flex-col justify-between group overflow-hidden relative border-glow cursor-default ${item.className} ${item.shimmer ? 'shimmer' : ''}`}
+                            className={`glass-card rounded-[40px] md:rounded-[56px] p-10 md:p-14 flex flex-col justify-between group overflow-hidden relative cursor-default ${item.className} ${item.shimmer ? 'shimmer' : ''}`}
                         >
                             {/* Spotlight Effect */}
                             <motion.div
-                                className="pointer-events-none absolute -inset-px rounded-2xl md:rounded-[32px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+                                className="pointer-events-none absolute -inset-px rounded-2xl md:rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
                                 style={{
                                     background: useMotionTemplate`
-                                        radial-gradient(
-                                            600px circle at ${mouseX}px ${mouseY}px,
-                                            rgba(216, 165, 255, 0.1),
-                                            transparent 80%
-                                        )
+                                            radial-gradient(
+                                                600px circle at ${mouseX}px ${mouseY}px,
+                                                rgba(255, 159, 67, 0.15),
+                                                transparent 80%
+                                            )
                                     `,
                                 }}
                             />
 
                             <div className="relative z-10 flex justify-between items-start">
-                                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-white/5 flex items-center justify-center ${item.color} group-hover:bg-brand-periwinkle group-hover:text-white transition-all duration-500`}>
-                                    <item.icon size={18} className="md:w-5 md:h-5" />
+                                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-black/5 flex items-center justify-center ${item.color} group-hover:bg-brand-orange group-hover:text-white transition-all duration-500`}>
+                                    <item.icon size={22} className="md:w-6 md:h-6" />
                                 </div>
                                 <div className="hidden sm:block opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <Zap size={18} className="text-brand-lavender" />
+                                    <Zap size={22} className="text-brand-orange" />
                                 </div>
                             </div>
                             <div className="relative z-10 text-left">
-                                <h3 className="text-base md:text-lg font-beautique mb-2 group-hover:brand-highlight transition-all tracking-tight transition-all duration-300">
+                                <h3 className="text-xl md:text-2xl font-serif mb-3 transition-all duration-500 text-slate-900 tracking-tight leading-snug">
                                     {item.title}
                                 </h3>
-                                <p className="text-slate-400 font-light leading-relaxed max-w-[260px] text-[11px] md:text-xs opacity-80">
+                                <p className="text-slate-800 font-semibold leading-relaxed max-w-[320px] text-[12px] md:text-sm">
                                     {item.description}
                                 </p>
                             </div>
 
                             {/* Decorative Background Element */}
-                            <div className="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 opacity-[0.02] group-hover:opacity-[0.05] transition-opacity">
-                                <item.icon size={120} className="md:w-[150px] md:h-[150px]" />
+                            <div className="absolute -bottom-8 -right-8 md:-bottom-12 md:-right-12 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity">
+                                <item.icon size={140} className="md:w-[200px] md:h-[200px]" />
                             </div>
                         </motion.div>
                     ))}

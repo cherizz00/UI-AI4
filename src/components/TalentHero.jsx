@@ -1,10 +1,40 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import Magnetic from './Magnetic';
-import { ArrowRight, Calendar, Star, Zap, Globe2, Activity } from 'lucide-react';
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
+import Reliance from "../assets/logos/reliance.svg";
+import TCS from "../assets/logos/tcs.svg";
+import HDFC from "../assets/logos/hdfc.svg";
+import ICICI from "../assets/logos/icici.svg";
+import Infosys from "../assets/logos/infosys.svg";
+import SBI from "../assets/logos/sbi.svg";
+import Kotak from "../assets/logos/kotak.svg";
+import Axis from "../assets/logos/axis.svg";
+import Bajaj from "../assets/logos/bajaj.svg";
+import Airtel from "../assets/logos/airtel.svg";
+import LT from "../assets/logos/lt.svg";
+import ITC from "../assets/logos/itc.svg";
+import HUL from "../assets/logos/hul.svg";
+import Adani from "../assets/logos/adani.svg";
+import Wipro from "../assets/logos/wipro.svg";
+
+
+import { Calendar, Star, Zap, Globe2, Activity } from 'lucide-react';
 
 const logos = [
-    "Goldman Sachs", "BlackRock", "JPMorgan", "Citadel", "Bridgewater", "Renaissance"
+    { ticker: "RELIANCE", logo: Reliance, color: "text-[#D32F2F]" },
+    { ticker: "TCS", logo: TCS, color: "text-[#333399]" },
+    { ticker: "HDFCBANK", logo: HDFC, color: "text-[#003366]" },
+    { ticker: "ICICIBANK", logo: ICICI, color: "text-[#990000]" },
+    { ticker: "INFY", logo: Infosys, color: "text-[#007CC3]" },
+    { ticker: "SBIN", logo: SBI, color: "text-[#00B5EF]" },
+    { ticker: "KOTAKBANK", logo: Kotak, color: "text-[#EE1C25]" },
+    { ticker: "AXISBANK", logo: Axis, color: "text-[#971237]" },
+    { ticker: "BAJFINANCE", logo: Bajaj, color: "text-[#0055A5]" },
+    { ticker: "BHARTIARTL", logo: Airtel, color: "text-[#DE2020]" },
+    { ticker: "LT", logo: LT, color: "text-[#FFD200]" },
+    { ticker: "ITC", logo: ITC, color: "text-[#212E55]" },
+    { ticker: "HINDUNILVR", logo: HUL, color: "text-[#004996]" },
+    { ticker: "ADANIENT", logo: Adani, color: "text-[#ED1C24]" },
+    { ticker: "WIPRO", logo: Wipro, color: "text-[#712D91]" }
 ];
 
 const dataPoints = Array.from({ length: 20 }, (_, i) => ({
@@ -16,34 +46,16 @@ const dataPoints = Array.from({ length: 20 }, (_, i) => ({
 }));
 
 const TalentHero = () => {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
 
-    const springConfig = { damping: 25, stiffness: 150 };
-    const springX = useSpring(mouseX, springConfig);
-    const springY = useSpring(mouseY, springConfig);
-
-    const rotateX = useTransform(springY, [-0.5, 0.5], [5, -5]);
-    const rotateY = useTransform(springX, [-0.5, 0.5], [-5, 5]);
-
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            const { clientX, clientY } = e;
-            mouseX.set((clientX / window.innerWidth) - 0.5);
-            mouseY.set((clientY / window.innerHeight) - 0.5);
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, [mouseX, mouseY]);
 
     return (
-        <section className="relative min-h-[90vh] lg:min-h-screen bg-transparent text-white pt-32 md:pt-40 lg:pt-52 pb-16 overflow-hidden flex flex-col items-center justify-start text-center">
+        <section className="relative min-h-[85vh] lg:min-h-[90vh] bg-transparent text-black pt-28 md:pt-36 lg:pt-44 pb-20 overflow-hidden flex flex-col items-center justify-start text-center section-py">
             {/* Precision Background - Data Float */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-10">
                 {dataPoints.map(p => (
                     <div
                         key={p.id}
-                        className="data-float"
+                        className="data-float text-black"
                         style={{
                             left: p.left,
                             top: p.top,
@@ -54,31 +66,31 @@ const TalentHero = () => {
                         0x{p.val}
                     </div>
                 ))}
-                <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
             </div>
 
-            <div className="container relative z-10 max-w-5xl mx-auto px-6">
+            <div className="container relative z-10 max-w-5xl mx-auto px-10 md:px-16">
                 {/* Institutional Badge */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 mb-8 backdrop-blur-md"
+                    className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-100 mb-8 md:mb-10 shadow-premium"
                 >
-                    <Activity size={12} className="text-emerald-400" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mono-data">Real-time Alpha Node Active</span>
+                    <Activity size={12} className="text-brand-orange" />
+                    <span className="badge-institutional text-slate-500">Real-time Alpha Node Active</span>
                 </motion.div>
 
-                {/* Headline Section */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    className="mb-6 md:mb-8"
+                    initial={{ opacity: 1 }}
+                    className="mb-6 md:mb-10"
                 >
-                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-[72px] font-beautique font-normal tracking-tight leading-[1.1] md:leading-[1.05] max-w-4xl mx-auto italic">
-                        No Noise. <br />
-                        <span className="brand-highlight underline decoration-white/10 underline-offset-8">Just Numbers.</span>
+                    <h1 className="text-fluid-h1 max-w-4xl mx-auto italic">
+                        Beat the Market
+                        <br />
+                        <span className="not-italic bg-gradient-to-r from-slate-900 via-slate-800 to-brand-orange bg-clip-text text-transparent underline decoration-brand-orange/50 underline-offset-8">
+                            Before the Bell.
+                        </span>
                     </h1>
                 </motion.div>
 
@@ -86,72 +98,42 @@ const TalentHero = () => {
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-slate-400 text-sm sm:text-base md:text-lg mb-10 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed opacity-70"
+                    transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-fluid-p text-black mb-10 md:mb-12 max-w-2xl mx-auto font-semibold"
                 >
-                    AI4INVEST deploy algorithmic decision engines built on the bedrock of pure data. Pure execution. Absolute alpha.
+                    Get the unfair advantage with <strong>AI4INVEST Daily</strong>.
+                    <br className="hidden md:block" />
+                    Institutional-grade pre-market intelligence reports delivered to your inbox every morning at 8:00 AM IST.
                 </motion.p>
 
-                {/* CTA Buttons - Terminal Style */}
+                {/* Subscription Input */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-20 md:mb-24"
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="flex flex-col items-center justify-center mb-16 md:mb-24 w-full max-w-md mx-auto"
                 >
-                    <Magnetic>
-                        <button className="w-full sm:w-auto bg-white text-black px-10 py-4.5 rounded-xl font-bold transition-all hover:bg-slate-200 cursor-pointer flex items-center justify-center gap-3 group text-sm shadow-2xl">
-                            Deploy Node <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <form className="relative w-full flex items-center" onSubmit={(e) => e.preventDefault()}>
+                        <div className="absolute left-4 text-slate-400">
+                            <Calendar size={18} />
+                        </div>
+                        <input
+                            type="email"
+                            placeholder="user@fund.com"
+                            className="w-full pl-12 pr-32 py-4 rounded-2xl glass-100 border border-white/20 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-orange/50 transition-all font-medium text-sm shadow-premium"
+                        />
+                        <button className="absolute right-1.5 top-1.5 bottom-1.5 px-6 rounded-xl bg-black text-white text-xs font-bold hover:bg-slate-900 transition-colors tracking-wide flex items-center gap-2">
+                            ISUBSCRIBE
                         </button>
-                    </Magnetic>
-                    <Magnetic>
-                        <button className="w-full sm:w-auto bg-white/5 border border-white/10 text-white px-10 py-4.5 rounded-xl font-bold hover:bg-white/10 transition-all cursor-pointer flex items-center justify-center gap-2 text-sm backdrop-blur-md group">
-                            <span className="text-slate-500 group-hover:text-white transition-colors mono-data mr-2">/cmd</span> Reach Experts
-                        </button>
-                    </Magnetic>
+                    </form>
+                    <p className="mt-4 text-[10px] uppercase tracking-widest text-slate-400 font-bold flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Next Brief: 08:00 AM IST
+                    </p>
                 </motion.div>
 
-                {/* Visual Anchor - Data Dense Mock */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full max-w-5xl mx-auto aspect-[21/9] glass rounded-3xl border border-white/5 shadow-3xl relative overflow-hidden group mb-24 md:mb-32"
-                    style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-                >
-                    <div className="absolute inset-0 flex flex-col">
-                        <div className="h-8 border-b border-white/5 flex items-center px-6 justify-between bg-white/[0.02]">
-                            <div className="flex gap-2">
-                                <div className="w-2 h-2 rounded-full bg-rose-500/50" />
-                                <div className="w-2 h-2 rounded-full bg-amber-500/50" />
-                                <div className="w-2 h-2 rounded-full bg-emerald-500/50" />
-                            </div>
-                            <span className="text-[9px] mono-data text-slate-500 uppercase tracking-widest">Strategy_Lab_V4.log</span>
-                        </div>
-                        <div className="flex-1 p-8 grid grid-cols-4 gap-6">
-                            {[...Array(8)].map((_, i) => (
-                                <div key={i} className="flex flex-col gap-2">
-                                    <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                                        <motion.div
-                                            initial={{ width: 0 }}
-                                            animate={{ width: `${30 + Math.random() * 60}%` }}
-                                            transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse', delay: i * 0.2 }}
-                                            className="h-full bg-brand-periwinkle/30"
-                                        />
-                                    </div>
-                                    <div className="flex justify-between text-[8px] mono-data text-slate-600">
-                                        <span>SIGNAL_{i}</span>
-                                        <span>{(Math.random() * 10).toFixed(2)}%</span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-white/5 text-[10vw] font-thin select-none tracking-tighter mono-data">0.9998</div>
-                    </div>
-                </motion.div>
+
+
             </div>
 
             {/* Logo Cloud */}
@@ -160,14 +142,36 @@ const TalentHero = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
-                className="container border-t border-white/5 pt-16 pb-8"
+                className="container border-t border-black/5 pt-10 pb-6 relative"
             >
-                <div className="flex flex-wrap justify-center items-center gap-x-12 md:gap-x-20 gap-y-10 opacity-20 grayscale hover:grayscale-0 hover:opacity-80 transition-all duration-1000 px-6">
-                    {logos.map((logo, idx) => (
-                        <span key={idx} className="text-sm md:text-base font-bold tracking-tighter text-white select-none cursor-default uppercase flex items-center gap-2 mono-data">
-                            {logo}
-                        </span>
-                    ))}
+                <div
+                    className="w-full overflow-hidden flex items-center"
+                    style={{
+                        maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+                        WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+                    }}
+                >
+                    <div className="animate-marquee flex items-center gap-6 md:gap-12 pr-6 md:pr-12">
+                        {[...logos, ...logos].map((logo, idx) => (
+                            <div key={idx} className="glass-card flex items-center gap-4 shrink-0 group/logo cursor-pointer px-6 py-4 rounded-2xl hover:bg-white transition-all duration-300 min-w-[180px] justify-center active:scale-95">
+                                <div className="w-10 h-10 rounded-full bg-black/5 flex items-center justify-center p-1.5 group-hover/logo:scale-110 transition-transform duration-500">
+                                    <img
+                                        src={logo.logo}
+                                        alt={logo.ticker}
+                                        className="w-full h-full object-contain mix-blend-multiply"
+                                    />
+                                </div>
+                                <div className="flex flex-col text-left">
+                                    <span className="text-[13px] font-bold tracking-wider text-slate-900 group-hover/logo:text-black mono-data flex items-center gap-1.5 whitespace-nowrap">
+                                        {logo.ticker}
+                                    </span>
+                                    <span className="text-[10px] font-medium text-slate-500 group-hover/logo:text-brand-orange transition-colors tracking-widest uppercase">
+                                        NSE EQUITY
+                                    </span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </motion.div>
         </section >

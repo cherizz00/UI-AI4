@@ -17,16 +17,16 @@ const testimonials = [
 
 const TalentTestimonials = () => {
     return (
-        <section className="py-16 sm:py-24 bg-transparent">
-            <div className="container max-w-7xl mx-auto px-6">
+        <section className="section-py bg-transparent">
+            <div className="container max-w-7xl mx-auto px-6 md:px-12">
                 <div className="text-center mb-12 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-beautique tracking-tight mb-4 md:mb-6">
-                            Voice of the <span className="brand-highlight text-3xl sm:text-4xl">Frontier.</span>
+                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-6 md:mb-8 text-slate-900">
+                            Voice of the <span className="text-fade">Frontier.</span>
                         </h2>
                     </motion.div>
                 </div>
@@ -38,20 +38,20 @@ const TalentTestimonials = () => {
                             initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="glass p-8 md:p-10 rounded-2xl md:rounded-[40px] border border-white/5 relative overflow-hidden group hover:border-brand-periwinkle/30 transition-all"
+                            className="glass-card p-8 md:p-10 rounded-2xl md:rounded-[40px] relative overflow-hidden group"
                         >
-                            <Quote className="absolute top-6 right-6 md:top-8 md:right-8 text-brand-periwinkle/10 group-hover:text-brand-periwinkle/30 transition-colors" size={40} />
+                            <Quote className="absolute top-6 right-6 md:top-8 md:right-8 text-brand-orange/10 group-hover:text-brand-orange/20 transition-colors" size={40} />
 
-                            <p className="text-lg sm:text-xl md:text-2xl font-light text-slate-300 mb-8 md:mb-10 relative z-10 leading-snug italic tracking-tight">
+                            <p className="text-slate-800 text-base md:text-lg font-semibold mb-8 md:mb-10 relative z-10 leading-snug tracking-tight">
                                 "{test.quote}"
                             </p>
 
                             <div className="relative z-10 text-left">
-                                <h4 className="text-white font-beautique text-base md:text-lg mb-0.5 md:mb-1 tracking-tight">{test.author}</h4>
-                                <p className="text-brand-lavender text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em]">{test.firm}</p>
+                                <h4 className="text-slate-900 font-serif text-base md:text-lg mb-0.5 md:mb-1 tracking-tight">{test.author}</h4>
+                                <p className="text-brand-orange text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em]">{test.firm}</p>
                             </div>
 
-                            <div className="absolute -bottom-12 -right-12 md:-bottom-16 md:-right-16 w-36 h-36 md:w-48 md:h-48 bg-brand-periwinkle/5 blur-[50px] md:blur-[60px] rounded-full" />
+                            <div className="absolute -bottom-12 -right-12 md:-bottom-16 md:-right-16 w-36 h-36 md:w-48 md:h-48 bg-brand-orange/5 blur-[50px] md:blur-[60px] rounded-full" />
                         </motion.div>
                     ))}
                 </div>

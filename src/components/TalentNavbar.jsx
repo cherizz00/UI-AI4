@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, LogIn, Calendar } from 'lucide-react';
 import Magnetic from './Magnetic';
 
-const TalentNavbar = () => {
+const TalentNavbar = ({ setView }) => {
     const [scrolled, setScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -21,30 +21,28 @@ const TalentNavbar = () => {
     ];
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? 'py-4' : 'py-6 md:py-8'}`}>
-            <div className="container max-w-7xl mx-auto px-4 sm:px-6">
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? 'py-2' : 'py-4 md:py-6'}`}>
+            <div className="container max-w-7xl mx-auto px-6 sm:px-8">
                 <motion.div
                     layout
-                    className={`ultra-glass navbar-lighting flex items-center justify-between gap-4 transition-all duration-700 relative group px-4 sm:px-8 py-2 md:py-3.5 rounded-[20px] md:rounded-full ${scrolled ? 'shadow-2xl border-white/10' : 'border-white/5'}`}
+                    className={`bg-white/0 backdrop-blur-2xl border border-white/100 flex items-center justify-center sm:justify-between gap-4 transition-all duration-700 relative group px-6 sm:px-8 py-2 md:py-2.5 rounded-full ${scrolled ? 'shadow-[0_4px_30px_rgba(0,0,0,0.1)]' : 'shadow-lg'}`}
                 >
-                    {/* Lighting Glow - Subtle reactive border */}
-                    <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-brand-periwinkle/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                    <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-lavender/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+
 
                     {/* Logo Left - scaled and icon removed */}
                     <a href="/" className="flex items-center group shrink-0 relative z-10">
-                        <span className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tighter text-white">
-                            <span className="brand-highlight" style={{ letterSpacing: '-0.5px' }}>AI4</span>INVEST
+                        <span className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tighter text-slate-900">
+                            <span className="text-fade" style={{ letterSpacing: '-0.5px' }}>AI4</span>INVEST
                         </span>
                     </a>
 
                     {/* Fluid Navigation Links - Centered via flex-1 and justify-center to prevent overlap */}
-                    <div className="hidden xl:flex flex-1 items-center justify-center gap-8 xl:gap-10 relative z-10 px-4">
+                    <div className="hidden xl:flex flex-1 items-center justify-center gap-10 xl:gap-12 relative z-10 px-6">
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="text-[11px] font-bold text-slate-400 hover:text-white transition-all tracking-[0.1em] uppercase opacity-70 hover:opacity-100 hover:scale-105 active:scale-95 whitespace-nowrap"
+                                className="text-[12px] font-bold text-slate-900 hover:text-brand-orange transition-all tracking-[0.15em] uppercase hover:scale-105 active:scale-95 whitespace-nowrap badge-institutional"
                             >
                                 {link.name}
                             </a>
@@ -52,19 +50,22 @@ const TalentNavbar = () => {
                     </div>
 
                     {/* Auth Actions Right */}
-                    <div className="hidden sm:flex items-center gap-4 md:gap-6 shrink-0 relative z-10">
-                        <button className="text-[11px] md:text-xs font-bold text-white hover:text-brand-lavender transition-all cursor-pointer flex items-center gap-1.5 hover:translate-y-[-1px] uppercase tracking-wider whitespace-nowrap">
+                    <div className="hidden sm:flex items-center gap-6 md:gap-8 shrink-0 relative z-10">
+                        <button
+                            onClick={() => setView('auth')}
+                            className="text-[12px] md:text-xs font-bold text-black opacity-80 hover:opacity-100 transition-all cursor-pointer flex items-center gap-1.5 hover:translate-y-[-1px] uppercase tracking-wider whitespace-nowrap"
+                        >
                             <LogIn size={13} className="md:w-4 md:h-4" /> Sign In
                         </button>
                         <Magnetic>
-                            <button className="bg-white text-black px-5 md:px-7 py-2 md:py-2.5 rounded-xl md:rounded-full font-bold hover:bg-slate-100 transition-all cursor-pointer flex items-center gap-2 text-[11px] md:text-xs shadow-xl whitespace-nowrap">
+                            <button className="bg-black text-white px-6 md:px-8 py-2.5 md:py-3 rounded-xl md:rounded-full font-bold hover:bg-slate-800 transition-all cursor-pointer flex items-center gap-2 text-[11px] md:text-xs shadow-xl whitespace-nowrap shimmer">
                                 <Calendar size={13} className="md:w-4 md:h-4" /> Book a Demo
                             </button>
                         </Magnetic>
                     </div>
 
                     {/* Mobile/Tablet Menu Button - Shows on lg and below to protect the layout */}
-                    <button className="xl:hidden text-white p-2 relative z-10" onClick={() => setIsOpen(!isOpen)}>
+                    <button className="xl:hidden text-black p-2 relative z-10" onClick={() => setIsOpen(!isOpen)}>
                         {isOpen ? <X size={20} className="md:w-6 md:h-6" /> : <Menu size={20} className="md:w-6 md:h-6" />}
                     </button>
                 </motion.div>
@@ -78,31 +79,34 @@ const TalentNavbar = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-black/40 backdrop-blur-md z-[-1] xl:hidden"
+                            className="fixed inset-0 bg-white/40 backdrop-blur-md z-[-1] xl:hidden"
                             onClick={() => setIsOpen(false)}
                         />
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9, y: -20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                            className="xl:hidden absolute top-full left-4 right-4 mt-4"
+                            className="xl:hidden absolute top-full left-4 right-4 mt-6"
                         >
-                            <div className="ultra-glass p-8 rounded-3xl border border-white/10 space-y-6 bg-black/60 backdrop-blur-[40px] shadow-3xl">
+                            <div className="glass-card p-10 rounded-3xl space-y-8 bg-white/60 backdrop-blur-[40px] shadow-3xl">
                                 {navLinks.map((link) => (
                                     <a
                                         key={link.name}
                                         href={link.href}
-                                        className="block text-xl font-light text-white hover:text-brand-lavender transition-colors"
+                                        className="block text-xl font-light text-black hover:text-brand-orange transition-colors"
                                         onClick={() => setIsOpen(false)}
                                     >
                                         {link.name}
                                     </a>
                                 ))}
-                                <div className="pt-6 border-t border-white/5 space-y-4">
-                                    <button className="w-full text-left py-4 text-white font-medium text-lg flex items-center justify-between">
+                                <div className="pt-8 border-t border-black/5 space-y-4">
+                                    <button
+                                        onClick={() => setView('auth')}
+                                        className="w-full text-left py-4 text-black font-medium text-lg flex items-center justify-between"
+                                    >
                                         Sign In <LogIn size={20} />
                                     </button>
-                                    <button className="w-full bg-white text-black py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-2xl">
+                                    <button className="w-full bg-black text-white py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-3 shadow-2xl">
                                         <Calendar size={20} /> Book a Demo
                                     </button>
                                 </div>

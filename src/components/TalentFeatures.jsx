@@ -4,30 +4,30 @@ import { Zap, Target, Shield } from 'lucide-react';
 
 const featureList = [
     {
-        title: "Millisecond Execution",
-        desc: "High-frequency gateway to 100+ global exchanges.",
-        icon: Zap,
-        color: "text-brand-periwinkle"
-    },
-    {
-        title: "ML-Native Alpha",
-        desc: "Proprietary models finding structural edges in noise.",
+        title: "Macro Sentiment",
+        desc: "AI-synthesized global macro trends and their direct impact on Indian indices.",
         icon: Target,
-        color: "text-brand-lavender"
+        color: "text-brand-orange"
     },
     {
-        title: "Risk Orchestration",
-        desc: "Dynamic hedging and cross-asset factor exposure labs.",
+        title: "Volatility Alerts",
+        desc: "Early warning signals for VIX spikes and liquidity drying up in key sectors.",
+        icon: Zap,
+        color: "text-black"
+    },
+    {
+        title: "Sector Rotation",
+        desc: "Predictive capital flow analysis identifying the next big sector move before it happens.",
         icon: Shield,
-        color: "text-emerald-400"
+        color: "text-brand-orange"
     }
 ];
 
 const TalentFeatures = () => {
     return (
-        <section className="py-12 sm:py-16 bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <section className="section-py bg-transparent overflow-hidden">
+            <div className="container max-w-7xl mx-auto px-6 md:px-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
                     {featureList.map((f, i) => (
                         <motion.div
                             key={i}
@@ -35,13 +35,13 @@ const TalentFeatures = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                             viewport={{ once: true }}
-                            className="p-8 md:p-10 glass rounded-2xl md:rounded-[40px] border border-white/5 hover:border-brand-periwinkle/30 transition-all group"
+                            className="p-10 md:p-14 glass-card rounded-[48px] group relative overflow-hidden"
                         >
-                            <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl bg-white/5 flex items-center justify-center ${f.color} mb-6 md:mb-8 group-hover:bg-brand-periwinkle group-hover:text-white transition-all duration-500`}>
-                                <f.icon size={20} className="md:w-6 md:h-6" />
+                            <div className={`w-14 h-14 md:w-16 md:h-16 rounded-3xl bg-black/[0.03] flex items-center justify-center ${f.color} mb-8 group-hover:bg-brand-orange group-hover:text-white transition-all duration-700`}>
+                                <f.icon size={24} className="md:w-7 md:h-7" />
                             </div>
-                            <h4 className="text-white font-beautique text-lg md:text-xl mb-2 md:mb-3 tracking-tight group-hover:brand-highlight transition-all">{f.title}</h4>
-                            <p className="text-slate-500 text-xs md:text-sm font-light leading-relaxed">{f.desc}</p>
+                            <h4 className="text-slate-900 font-serif text-2xl md:text-3xl mb-4 tracking-tight transition-all duration-500">{f.title}</h4>
+                            <p className="text-slate-600 text-sm md:text-base font-medium leading-relaxed opacity-80">{f.desc}</p>
                         </motion.div>
                     ))}
                 </div>

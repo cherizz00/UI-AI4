@@ -3,20 +3,47 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, ArrowUpRight, ArrowDownRight, Zap, Target, BarChart3, TrendingUp, Cpu } from 'lucide-react';
 
 const mockSignals = [
-    { id: 1, type: 'BULLISH', asset: 'BTC/USD', signal: 'Volume Breakout', strength: 'High', timestamp: '14:23:01', yield: '+2.4%' },
-    { id: 2, type: 'BEARISH', asset: 'NVDA', signal: 'MACD Crossover', strength: 'Medium', timestamp: '14:22:45', yield: '-1.2%' },
-    { id: 3, type: 'NEUTRAL', asset: 'XAU/USD', signal: 'Consolidation', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
-    { id: 4, type: 'BULLISH', asset: 'AAPL', signal: 'RSI Divergence', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
-    { id: 5, type: 'BULLISH', asset: 'ETH/USD', signal: 'Support Bounce', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
+    { id: 1, type: 'BULLISH', asset: 'ADANIENT', signal: 'Volume Breakout', strength: 'High', timestamp: '14:23:01', yield: '+2.4%' },
+    { id: 2, type: 'BEARISH', asset: 'RELIANCE', signal: 'MACD Crossover', strength: 'Medium', timestamp: '14:22:45', yield: '-1.2%' },
+    { id: 3, type: 'NEUTRAL', asset: 'NIFTY50', signal: 'Consolidation', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
+    { id: 4, type: 'BULLISH', asset: 'TCS', signal: 'RSI Divergence', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
+    { id: 5, type: 'BULLISH', asset: 'HDFCBANK', signal: 'Support Bounce', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
 ];
 
 const tickers = [
-    { label: "US Tech Alpha", val: "+14.2 bps" },
-    { label: "Global Macro Edge", val: "0.982 Sharpe" },
-    { label: "Crypto Distressed", val: "22% APR" },
-    { label: "EM Mean Reversion", val: "+5.1 bps" },
-    { label: "EU Factor Bias", val: "Lo-Vol" }
+    { label: "GIFT NIFTY", val: "+18.5 pts" },
+    { label: "USDINR", val: "83.12" },
+    { label: "BRENT CRUDE", val: "$77.4" },
+    { label: "INDIA VIX", val: "13.4" },
+    { label: "FII FLOW", val: "-₹450Cr" }
 ];
+
+const SparklineGraph = ({ type }) => {
+    const isBullish = type === 'BULLISH';
+    const isBearish = type === 'BEARISH';
+    const color = isBullish ? '#22c55e' : isBearish ? '#ef4444' : '#94a3b8';
+
+    const pathData = isBullish
+        ? "M2 22 L8 18 L14 20 L20 12 L26 15 L32 8 L38 10 L44 4 L50 2"
+        : isBearish
+            ? "M2 5 L8 8 L14 6 L20 15 L26 12 L32 20 L38 18 L44 24 L50 26"
+            : "M2 14 L8 16 L14 13 L20 15 L26 14 L32 16 L38 13 L44 15 L50 14";
+
+    return (
+        <div className="w-16 h-8 flex items-center justify-center">
+            <svg width="52" height="28" viewBox="0 0 52 28" fill="none">
+                <defs>
+                    <linearGradient id={`grad-${type}`} x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor={color} stopOpacity="0.2" />
+                        <stop offset="100%" stopColor={color} stopOpacity="0" />
+                    </linearGradient>
+                </defs>
+                <path d={pathData} stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d={`${pathData} L 52 28 L 0 28 Z`} fill={`url(#grad-${type})`} stroke="none" />
+            </svg>
+        </div>
+    );
+};
 
 const TalentIntelligenceFeed = () => {
     const [signals, setSignals] = useState(mockSignals);
@@ -25,67 +52,77 @@ const TalentIntelligenceFeed = () => {
         const interval = setInterval(() => {
             const nextSignals = [...signals];
             const first = nextSignals.shift();
-            nextSignals.push({ ...first, id: Math.random(), timestamp: new Date().toLocaleTimeString('en-GB') });
+            // Simulate varied signal types
+            const types = ['BULLISH', 'BEARISH'];
+            const type = types[Math.floor(Math.random() * types.length)];
+
+            nextSignals.push({
+                ...first,
+                id: Math.random(),
+                timestamp: new Date().toLocaleTimeString('en-GB'),
+                type: type,
+                yield: (Math.random() * 3).toFixed(1) + "%"
+            });
             setSignals(nextSignals);
-        }, 4000);
+        }, 3000);
         return () => clearInterval(interval);
     }, [signals]);
 
     return (
-        <section id="intelligence" className="py-24 sm:py-32 bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-6">
-                <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+        <section id="intelligence" className="section-py bg-transparent overflow-hidden">
+            <div className="container max-w-7xl mx-auto px-6 md:px-12">
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
                     <div className="w-full lg:w-5/12 lg:sticky lg:top-32">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[9px] font-bold uppercase tracking-widest mb-6">
-                                <TrendingUp size={10} />
-                                <span>Live Intelligence Feed</span>
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-orange/5 border border-brand-orange/10 text-brand-orange text-[9px] font-bold uppercase tracking-widest mb-6">
+                                <TrendingUp size={12} />
+                                <span>Pre-Market Signals</span>
                             </div>
-                            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-beautique tracking-tight mb-6 leading-tight text-left">
+                            <h2 className="text-fluid-h2 font-serif tracking-tight mb-6 leading-tight text-left text-slate-900">
                                 The Signal in <br />
-                                <span className="brand-highlight underline decoration-white/5 underline-offset-8">The Noise.</span>
+                                <span className="text-fade underline decoration-brand-orange/50 underline-offset-8">The Noise.</span>
                             </h2>
-                            <p className="text-slate-400 text-base md:text-lg font-light mb-10 max-w-lg opacity-70 text-left leading-relaxed">
+                            <p className="text-slate-800 text-sm md:text-base font-semibold mb-8 max-w-lg text-left leading-relaxed">
                                 Our decision engines operate at the frontier of high-fidelity data, identifying structural inefficiencies before they manifest in price.
                             </p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-                                <div className="p-7 rounded-[32px] bg-white/[0.03] border border-white/5 group hover:border-brand-periwinkle/30 transition-all">
-                                    <div className="w-10 h-10 rounded-xl bg-brand-periwinkle/10 flex items-center justify-center text-brand-periwinkle mb-6">
-                                        <Cpu size={18} />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+                                <div className="p-10 rounded-[48px] glass-card">
+                                    <div className="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-8">
+                                        <Cpu size={22} />
                                     </div>
-                                    <h4 className="text-white font-beautique text-lg mb-1 tracking-tight">Latency Zero</h4>
-                                    <p className="text-slate-500 text-xs font-light leading-relaxed">Co-located in NY4 and LD4 for sub-millisecond reactions.</p>
+                                    <h4 className="text-slate-900 font-serif text-xl mb-2 tracking-tight">Latency Zero</h4>
+                                    <p className="text-slate-600 text-xs font-medium leading-relaxed">Co-located in BKC and GIFT City for sub-millisecond reactions.</p>
                                 </div>
-                                <div className="p-7 rounded-[32px] bg-white/[0.03] border border-white/5 group hover:border-brand-lavender/30 transition-all">
-                                    <div className="w-10 h-10 rounded-xl bg-brand-lavender/10 flex items-center justify-center text-brand-lavender mb-6">
-                                        <Target size={18} />
+                                <div className="p-10 rounded-[48px] glass-card">
+                                    <div className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center text-black mb-8">
+                                        <Target size={22} />
                                     </div>
-                                    <h4 className="text-white font-beautique text-lg mb-1 tracking-tight">Alpha Max</h4>
-                                    <p className="text-slate-500 text-xs font-light leading-relaxed">ML-driven factor detection across 400+ venues.</p>
+                                    <h4 className="text-slate-900 font-serif text-xl mb-2 tracking-tight">Alpha Max</h4>
+                                    <p className="text-slate-600 text-xs font-medium leading-relaxed">ML-driven factor detection across NSE & BSE.</p>
                                 </div>
                             </div>
                         </motion.div>
                     </div>
 
                     <div className="w-full lg:w-7/12">
-                        <div className="ultra-glass rounded-[40px] border border-white/5 overflow-hidden relative shadow-3xl">
-                            <div className="p-6 border-b border-white/5 flex justify-between items-center bg-white/[0.01]">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(52,211,153,0.5)]" />
-                                    <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 mono-data">Alpha_Stream_Live</span>
+                        <div className="glass-card rounded-[56px] overflow-hidden relative shadow-3xl">
+                            <div className="p-8 border-b border-black/5 flex justify-between items-center bg-black/[0.01]">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-2.5 h-2.5 bg-brand-orange rounded-full animate-pulse shadow-[0_0_16px_rgba(255,159,67,0.5)]" />
+                                    <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-slate-500 mono-data">Alpha_Stream_Live</span>
                                 </div>
-                                <div className="flex items-center gap-4 text-slate-600">
-                                    <span className="text-[9px] mono-data">BPS: 42k/s</span>
-                                    <BarChart3 size={14} />
+                                <div className="flex items-center gap-6 text-slate-400">
+                                    <span className="text-[10px] mono-data">BPS: 42k/s</span>
+                                    <BarChart3 size={16} />
                                 </div>
                             </div>
 
-                            <div className="p-4 space-y-2 max-h-[500px] overflow-hidden">
+                            <div className="p-6 space-y-3 max-h-[600px] overflow-hidden">
                                 <AnimatePresence mode="popLayout">
                                     {signals.slice(0, 6).map((signal) => (
                                         <motion.div
@@ -94,33 +131,30 @@ const TalentIntelligenceFeed = () => {
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                            className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 flex items-center justify-between group hover:bg-white/[0.04] transition-all hover:border-brand-periwinkle/20"
+                                            className="p-6 rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
                                         >
-                                            <div className="flex items-center gap-5 text-left">
-                                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-emerald-500/10 text-emerald-400' :
-                                                        signal.type === 'BEARISH' ? 'bg-rose-500/10 text-rose-400' : 'bg-slate-500/10 text-slate-400'
+                                            <div className="flex items-center gap-6 text-left">
+                                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
+                                                    signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
                                                     }`}>
-                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={18} /> :
-                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={18} /> :
-                                                            <Activity size={18} />}
+                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={20} /> :
+                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={20} /> :
+                                                            <Activity size={20} />}
                                                 </div>
                                                 <div>
-                                                    <h4 className="font-beautique text-base text-white tracking-tight group-hover:brand-highlight transition-all mono-data uppercase">{signal.asset}</h4>
-                                                    <p className="text-[10px] text-slate-500 font-light mt-0.5 uppercase tracking-wide">{signal.signal}</p>
+                                                    <h4 className="font-serif text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium">{signal.asset}</h4>
+                                                    <p className="text-[11px] text-slate-500 font-medium mt-1 uppercase tracking-wide">{signal.signal}</p>
                                                 </div>
                                             </div>
-                                            <div className="text-right flex items-center gap-6">
+                                            <div className="text-right flex items-center gap-8">
                                                 <div className="flex flex-col items-end">
-                                                    <span className={`text-[11px] font-bold mono-data ${signal.yield.startsWith('+') ? 'text-emerald-400' : 'text-rose-400'}`}>
+                                                    <span className={`text-[12px] font-bold mono-data ${signal.yield.startsWith('+') ? 'text-brand-orange' : 'text-black'}`}>
                                                         {signal.yield}
                                                     </span>
-                                                    <span className="text-[8px] text-slate-600 font-bold mono-data">{signal.timestamp}</span>
+                                                    <span className="text-[9px] text-slate-500 font-bold mono-data">{signal.timestamp}</span>
                                                 </div>
                                                 <div className="hidden sm:block">
-                                                    <span className={`text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${signal.strength === 'High' ? 'bg-brand-periwinkle/10 text-brand-periwinkle border border-brand-periwinkle/20' : 'bg-white/5 text-slate-500'
-                                                        }`}>
-                                                        {signal.strength}
-                                                    </span>
+                                                    <SparklineGraph type={signal.type} />
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -128,13 +162,13 @@ const TalentIntelligenceFeed = () => {
                                 </AnimatePresence>
                             </div>
 
-                            {/* Performance Ticker */}
-                            <div className="border-t border-white/5 bg-black/40 backdrop-blur-md py-3 ticker-container">
-                                <div className="ticker-content gap-12">
+                            {/* Performance Ticker - Live Simulated Data */}
+                            <div className="border-t border-black/5 bg-white/60 backdrop-blur-md py-4 ticker-container">
+                                <div className="ticker-content gap-16">
                                     {[...tickers, ...tickers].map((ticker, i) => (
-                                        <div key={i} className="flex items-center gap-2 px-4 border-r border-white/5">
-                                            <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest mono-data">{ticker.label}:</span>
-                                            <span className="text-[8px] font-bold text-emerald-400 mono-data">{ticker.val}</span>
+                                        <div key={i} className="flex items-center gap-3 px-6 border-r border-black/5 min-w-[150px]">
+                                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mono-data">{ticker.label}:</span>
+                                            <span className="text-[10px] font-bold text-brand-orange mono-data">{ticker.val}</span>
                                         </div>
                                     ))}
                                 </div>
