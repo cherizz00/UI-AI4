@@ -33,29 +33,29 @@ const features = [
 const TalentAbout = () => {
     return (
         <section id="about" className="section-py bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+                <div className="grid grid-cols-2 gap-2 md:gap-24 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-6 md:mb-8 leading-tight text-slate-900 text-left">
+                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-2 md:mb-8 leading-tight text-slate-900 text-left">
                             We Are <br />
                             <span className="text-fade">AI Investors.</span>
                         </h2>
-                        <p className="text-slate-800 text-sm md:text-base font-semibold mb-8 md:mb-10 max-w-xl leading-relaxed text-left">
-                            We don't just analyse the market; we compute it. AI4INVEST uses institutional-grade machine learning to generate the same reports that hedge funds use, now available for you.
+                        <p className="text-slate-800 text-[6.5px] md:text-base font-semibold mb-4 md:mb-10 max-w-xl leading-tight text-left italic px-1">
+                            We compute the market. Institutional-grade ML reports, now available for you.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
+                        <div className="grid grid-cols-2 gap-1.5 md:gap-4 text-left">
                             {features.map((feature, i) => (
                                 <div key={i} className="group cursor-default">
-                                    <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-black/5 flex items-center justify-center ${feature.color} mb-5 md:mb-6 border border-black/5 group-hover:bg-brand-orange group-hover:text-white transition-all duration-500`}>
-                                        <feature.icon size={22} />
+                                    <div className={`w-5 h-5 md:w-14 md:h-14 rounded-md bg-black/5 flex items-center justify-center ${feature.color} mb-1.5 md:mb-6 border border-black/5 group-hover:bg-brand-orange group-hover:text-white transition-all duration-500`}>
+                                        <feature.icon size={10} />
                                     </div>
-                                    <h4 className="text-slate-900 font-serif text-lg md:text-xl mb-1.5 md:mb-2 tracking-tight group-hover:text-fade transition-all duration-300">{feature.title}</h4>
-                                    <p className="text-slate-800 text-[12px] md:text-sm font-semibold leading-relaxed">{feature.desc}</p>
+                                    <h4 className="text-slate-900 font-serif text-[7px] md:text-xl mb-0.5 md:mb-2 tracking-tight leading-none">{feature.title}</h4>
+                                    <p className="text-slate-800 text-[5px] md:text-sm font-semibold leading-none">{feature.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -66,14 +66,14 @@ const TalentAbout = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1 }}
                         viewport={{ once: true }}
-                        className="relative hidden sm:block"
+                        className="relative"
                     >
                         <div className="relative group">
-                            <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent blur-[50px] rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
+                            <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/20 to-transparent blur-[30px] rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
                             <img
                                 src={DashboardMockup}
                                 alt="AI4INVEST Platform Interface"
-                                className="relative z-10 w-full h-auto rounded-3xl shadow-2xl border border-white/20 hover:scale-[1.02] transition-transform duration-500"
+                                className="relative z-10 w-full h-auto rounded-xl md:rounded-3xl shadow-2xl border border-white/20 hover:scale-[1.02] transition-transform duration-500"
                             />
                         </div>
                     </motion.div>

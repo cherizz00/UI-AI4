@@ -94,76 +94,76 @@ const TalentAgent = () => {
     return (
         <section className="section-py bg-transparent relative overflow-hidden">
 
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-brand-orange/5 blur-[150px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[250px] md:w-[600px] h-[250px] md:h-[600px] bg-brand-orange/5 blur-[80px] md:blur-[150px] rounded-full pointer-events-none -z-10" />
 
-            <div className="container max-w-7xl mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+                <div className="flex flex-row gap-2 md:gap-24 items-center">
 
 
-                    <div className="order-2 lg:order-1">
+                    <div className="w-1/2 lg:w-1/2 text-left">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-[9px] font-bold uppercase tracking-widest mb-6"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-[6.5px] md:text-[9px] font-bold uppercase tracking-widest mb-1.5 md:mb-6"
                         >
-                            <BrainCircuit size={12} />
+                            <BrainCircuit size={8} className="md:w-[10px] md:h-[10px]" />
                             <span>Agentic AI Core</span>
                         </motion.div>
 
-                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-6 text-slate-900 leading-tight">
+                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-1.5 md:mb-6 text-slate-900 leading-tight">
                             Autonomous <br />
-                            <span className="text-fade underline decoration-brand-orange/50 underline-offset-8">Research Agents.</span>
+                            <span className="text-fade underline decoration-brand-orange/50 underline-offset-4 md:underline-offset-8">Research Agents.</span>
                         </h2>
-                        <p className="text-slate-800 text-sm md:text-base font-semibold mb-8 max-w-lg leading-relaxed">
-                            Our agents don't just process data; they understand it. From tracking macro regime shifts to synthesizing earnings calls, your AI assistant works 24/7.
+                        <p className="text-slate-800 text-[6.5px] md:text-base font-semibold mb-2 md:mb-8 max-w-lg leading-tight italic">
+                            Tracking macro regime shifts to synthesizing earnings calls, 24/7.
                         </p>
 
-                        <ul className="space-y-4 mb-8">
+                        <ul className="space-y-0.5 md:space-y-4 mb-2 md:mb-8">
                             {[
-                                "Continuous Macro-Trend Tracking",
-                                "Cross-Asset Correlation Analysis",
-                                "Sentiment Scoring from Global News",
-                                "Automated Pre-Market Report Generation"
+                                "Macro-Trend Tracking",
+                                "Asset Correlation",
+                                "Sentiment Scoring",
+                                "Report Generation"
                             ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-3">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
-                                    <span className="text-sm text-slate-600 font-medium">{item}</span>
+                                <li key={i} className="flex items-center gap-1 md:gap-2">
+                                    <div className="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-brand-orange" />
+                                    <span className="text-[6px] md:text-sm text-slate-600 font-medium leading-none">{item}</span>
                                 </li>
                             ))}
                         </ul>
                     </div>
 
 
-                    <div className="relative order-1 lg:order-2">
+                    <div className="w-1/2 relative">
                         <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            className="bg-[#0f172a] rounded-[32px] p-6 md:p-8 relative overflow-hidden shadow-2xl border border-slate-800"
+                            className="bg-[#0f172a] rounded-xl md:rounded-[32px] p-2.5 md:p-8 relative overflow-hidden shadow-2xl border border-slate-800"
                         >
 
-                            <div className="flex items-center gap-4 mb-6 border-b border-slate-800 pb-4">
-                                <div className="flex gap-1.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-rose-500/50" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/50" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/50" />
+                            <div className="flex items-center gap-2 md:gap-4 mb-2 md:mb-6 border-b border-slate-800 pb-2 md:pb-4">
+                                <div className="flex gap-1">
+                                    <div className="w-1 h-1 rounded-full bg-rose-500/50" />
+                                    <div className="w-1 h-1 rounded-full bg-amber-500/50" />
+                                    <div className="w-1 h-1 rounded-full bg-emerald-500/50" />
                                 </div>
-                                <div className="flex-1 bg-slate-900 rounded-lg h-7 flex items-center px-3 gap-2 border border-slate-800">
-                                    <Globe size={10} className="text-slate-500" />
-                                    <span className="text-[10px] text-slate-400 mono-data">agent://macro-research-v4</span>
+                                <div className="flex-1 bg-slate-900 rounded-md md:rounded-lg h-4 md:h-7 flex items-center px-1.5 gap-1.5 border border-slate-800 overflow-hidden">
+                                    <Globe size={6} className="text-slate-500 hidden md:block" />
+                                    <span className="text-[5.5px] md:text-[10px] text-slate-400 mono-data truncate">agent://macro-research-v4</span>
                                 </div>
                             </div>
 
 
-                            <div className="h-[320px] flex flex-col font-sans relative">
+                            <div className="h-[120px] md:h-[320px] flex flex-col font-sans relative">
 
                                 <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-5 pointer-events-none" />
 
                                 <div className="flex-1 overflow-hidden relative z-10">
-                                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0f172a] to-transparent z-10" />
+                                    <div className="absolute inset-x-0 bottom-0 h-4 md:h-16 bg-gradient-to-t from-[#0f172a] to-transparent z-10" />
 
-                                    <div className="space-y-4">
+                                    <div className="space-y-1 md:space-y-4">
                                         {agentTasks.slice(0, currentStep + 1).map((task, i) => (
                                             <AgentMessage key={i} task={task} isActive={i === currentStep} />
                                         ))}

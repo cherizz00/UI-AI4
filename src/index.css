@@ -70,14 +70,16 @@
         transition: left 0.5s ease;
     }
 
-    .btn-glow:hover::before {
-        left: 100%;
-    }
+    @media (hover: hover) {
+        .btn-glow:hover::before {
+            left: 100%;
+        }
 
-    .btn-glow:hover {
-        box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
-        border-color: rgba(255, 159, 67, 0.4);
-        transform: translateY(-2px);
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 159, 67, 0.4);
+            border-color: rgba(255, 159, 67, 0.4);
+            transform: translateY(-2px);
+        }
     }
 }
 
@@ -96,15 +98,40 @@
     white-space: nowrap;
     animation: marquee 40s linear infinite;
     min-width: 100%;
+
+    @media (pointer: coarse) {
+        animation-play-state: paused;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }
 
 @utility container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 16px;
+    padding-right: 16px;
     max-width: 1400px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 }
 
 @utility bg-grid {
@@ -160,8 +187,8 @@
 }
 
 @utility section-py {
-    padding-top: clamp(4rem, 10vh, 8rem);
-    padding-bottom: clamp(4rem, 10vh, 8rem);
+    padding-top: clamp(2.5rem, 12vh, 9rem);
+    padding-bottom: clamp(2.5rem, 12vh, 9rem);
 }
 
 @utility text-fade {
@@ -283,9 +310,11 @@
 @utility border-glow {
     transition: box-shadow 0.3s ease;
 
-    &:hover {
-        box-shadow: 0 0 20px -5px var(--color-brand-orange);
-        border-color: var(--color-brand-orange) !important;
+    @media (hover: hover) {
+        &:hover {
+            box-shadow: 0 0 20px -5px var(--color-brand-orange);
+            border-color: var(--color-brand-orange) !important;
+        }
     }
 }
 
@@ -483,6 +512,17 @@
 @utility ticker-content {
     display: inline-flex;
     animation: ticker-scroll 30s linear infinite;
+
+    @media (pointer: coarse) {
+        animation-play-state: paused;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }
 
 @keyframes ticker-scroll {
@@ -532,11 +572,13 @@
 @utility premium-card {
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
-    &:hover {
-        transform: translateY(-4px);
-        box-shadow:
-            0 20px 40px -15px rgba(0, 0, 0, 0.15),
-            0 0 0 1px rgba(255, 159, 67, 0.1);
+    @media (hover: hover) {
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 20px 40px -15px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 159, 67, 0.1);
+        }
     }
 }
 
@@ -657,17 +699,20 @@
         transition: opacity 0.4s;
     }
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    @media (hover: hover) {
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
 
-        &::before {
-            opacity: 1;
+            &::before {
+                opacity: 1;
+            }
         }
     }
 
     &:active {
-        transform: translateY(0);
+        transform: translateY(1px) scale(0.96);
+        opacity: 0.9;
     }
 }
 
@@ -734,14 +779,16 @@
         inset 0 0 0 1px rgba(255, 255, 255, 0.3);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
-    &:hover {
-        transform: translateY(-4px) scale(1.005);
-        background: rgba(255, 255, 255, 0.75);
-        box-shadow:
-            0 20px 40px -15px rgba(0, 0, 0, 0.08),
-            0 0 0 1px rgba(255, 140, 0, 0.15),
-            inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-        border-color: rgba(255, 140, 0, 0.2);
+    @media (hover: hover) {
+        &:hover {
+            transform: translateY(-4px) scale(1.005);
+            background: rgba(255, 255, 255, 0.75);
+            box-shadow:
+                0 20px 40px -15px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(255, 140, 0, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+            border-color: rgba(255, 140, 0, 0.2);
+        }
     }
 }
 

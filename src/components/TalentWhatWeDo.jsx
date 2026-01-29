@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 const TalentWhatWeDo = () => {
     return (
-        <section className="bg-[#F4F4F4] py-24 md:py-32 flex flex-col items-center text-center px-6">
+        <section className="section-py bg-[#F4F4F4] flex flex-col items-center text-center px-6">
             <div className="max-w-4xl mx-auto">
-                <h2 className="text-fluid-h2 mb-10 text-black">
+                <h2 className="text-fluid-h2 mb-4 md:mb-10 text-black">
                     What We Do
                 </h2>
                 <p className="font-serif text-[1.25rem] md:text-[1.75rem] leading-[1.4] text-black/80 mb-12 max-w-3xl mx-auto">

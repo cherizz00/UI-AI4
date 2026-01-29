@@ -26,7 +26,7 @@ const TalentFAQ = () => {
 
     return (
         <section className="section-py bg-transparent relative overflow-hidden">
-            <div className="container max-w-4xl mx-auto px-6 md:px-12 relative z-10">
+            <div className="container max-w-4xl mx-auto px-4 md:px-12 relative z-10">
                 <div className="text-center mb-16 md:mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -36,7 +36,7 @@ const TalentFAQ = () => {
                         <h2 className="text-fluid-h2 font-serif tracking-tight mb-6 md:mb-8 text-slate-900">
                             Clarifying the <span className="text-fade">Alpha.</span>
                         </h2>
-                        <p className="text-slate-800 text-sm md:text-base font-semibold max-w-xl mx-auto leading-relaxed">
+                        <p className="text-slate-800 text-xs md:text-base font-semibold max-w-xl mx-auto leading-relaxed">
                             Common questions from our institutional partners.
                         </p>
                     </motion.div>
@@ -50,17 +50,17 @@ const TalentFAQ = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.1 }}
                             viewport={{ once: true }}
-                            className={`glass-card rounded-[24px] overflow-hidden transition-all duration-500 ${openIndex === i ? 'bg-white/80 shadow-glow-orange border-brand-orange/30' : 'hover:bg-white/50'}`}
+                            className={`glass-card rounded-[16px] overflow-hidden transition-all duration-500 ${openIndex === i ? 'bg-white/80 shadow-glow-orange border-brand-orange/30' : 'hover:bg-white/50'}`}
                         >
                             <button
                                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                                className="w-full flex items-center justify-between p-6 md:p-8 text-left cursor-pointer"
+                                className="w-full flex items-center justify-between p-2.5 md:p-8 text-left cursor-pointer"
                             >
-                                <span className={`font-serif text-lg md:text-xl tracking-tight transition-colors ${openIndex === i ? 'text-brand-orange' : 'text-slate-900'}`}>
+                                <span className={`font-serif text-[10px] md:text-xl tracking-tight transition-colors leading-none ${openIndex === i ? 'text-brand-orange' : 'text-slate-900'}`}>
                                     {item.q}
                                 </span>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === i ? 'bg-brand-orange text-white rotate-180' : 'bg-black/5 text-slate-900'}`}>
-                                    {openIndex === i ? <Minus size={16} /> : <Plus size={16} />}
+                                <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === i ? 'bg-brand-orange text-white rotate-180' : 'bg-black/5 text-slate-900'}`}>
+                                    {openIndex === i ? <Minus size={10} /> : <Plus size={10} />}
                                 </div>
                             </button>
                             <AnimatePresence>
@@ -71,8 +71,8 @@ const TalentFAQ = () => {
                                         exit={{ height: 0, opacity: 0 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                     >
-                                        <div className="px-6 md:px-8 pb-8 pt-0">
-                                            <p className="text-slate-600 font-light leading-relaxed text-sm md:text-base border-t border-black/5 pt-4">
+                                        <div className="px-3 md:px-8 pb-3 md:pb-8 pt-0">
+                                            <p className="text-slate-600 font-light leading-tight text-[8.5px] md:text-base border-t border-black/5 pt-2">
                                                 {item.a}
                                             </p>
                                         </div>
@@ -85,7 +85,7 @@ const TalentFAQ = () => {
             </div>
 
 
-            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+            <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[280px] md:w-[500px] h-[280px] md:h-[500px] bg-brand-orange/5 blur-[80px] md:blur-[120px] rounded-full pointer-events-none -z-10" />
         </section>
     );
 };

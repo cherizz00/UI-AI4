@@ -30,7 +30,7 @@ const SparklineGraph = ({ type }) => {
             : "M2 14 L8 16 L14 13 L20 15 L26 14 L32 16 L38 13 L44 15 L50 14";
 
     return (
-        <div className="w-16 h-8 flex items-center justify-center">
+        <div className="w-8 md:w-16 h-4 md:h-8 flex items-center justify-center scale-75 md:scale-100 origin-right">
             <svg width="52" height="28" viewBox="0 0 52 28" fill="none">
                 <defs>
                     <linearGradient id={`grad-${type}`} x1="0" y1="0" x2="0" y2="1">
@@ -70,7 +70,7 @@ const TalentIntelligenceFeed = () => {
 
     return (
         <section id="intelligence" className="section-py bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-6 md:px-12">
+            <div className="container max-w-7xl mx-auto px-4 md:px-12">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
                     <div className="w-full lg:w-5/12 lg:sticky lg:top-32">
                         <motion.div
@@ -78,82 +78,82 @@ const TalentIntelligenceFeed = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-orange/5 border border-brand-orange/10 text-brand-orange text-[9px] font-bold uppercase tracking-widest mb-6">
-                                <TrendingUp size={12} />
+                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-brand-orange/5 border border-brand-orange/10 text-brand-orange text-[7px] md:text-[9px] font-bold uppercase tracking-widest mb-3 md:mb-6">
+                                <TrendingUp size={10} />
                                 <span>Pre-Market Signals</span>
                             </div>
-                            <h2 className="text-fluid-h2 font-serif tracking-tight mb-6 leading-tight text-left text-slate-900">
+                            <h2 className="text-fluid-h2 font-serif tracking-tight mb-2 md:mb-6 leading-tight text-left text-slate-900">
                                 The Signal in <br />
-                                <span className="text-fade underline decoration-brand-orange/50 underline-offset-8">The Noise.</span>
+                                <span className="text-fade underline decoration-brand-orange/50 underline-offset-4 md:underline-offset-8">The Noise.</span>
                             </h2>
-                            <p className="text-slate-800 text-sm md:text-base font-semibold mb-8 max-w-lg text-left leading-relaxed">
-                                Our decision engines operate at the frontier of high-fidelity data, identifying structural inefficiencies before they manifest in price.
+                            <p className="text-slate-800 text-[8px] md:text-base font-semibold mb-4 md:mb-8 max-w-lg text-left leading-tight italic">
+                                Identifying structural inefficiencies before they manifest in price.
                             </p>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
-                                <div className="p-10 rounded-[48px] glass-card">
-                                    <div className="w-14 h-14 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-8">
-                                        <Cpu size={22} />
+                            <div className="grid grid-cols-2 gap-2 md:gap-6 text-left">
+                                <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card">
+                                    <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-2 md:mb-8">
+                                        <Cpu size={14} md:size={22} />
                                     </div>
-                                    <h4 className="text-slate-900 font-serif text-xl mb-2 tracking-tight">Latency Zero</h4>
-                                    <p className="text-slate-600 text-xs font-medium leading-relaxed">Co-located in BKC and GIFT City for sub-millisecond reactions.</p>
+                                    <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight">Latency Zero</h4>
+                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-none">Co-located for sub-millisecond reactions.</p>
                                 </div>
-                                <div className="p-10 rounded-[48px] glass-card">
-                                    <div className="w-14 h-14 rounded-2xl bg-black/5 flex items-center justify-center text-black mb-8">
-                                        <Target size={22} />
+                                <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card">
+                                    <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-black/5 flex items-center justify-center text-black mb-2 md:mb-8">
+                                        <Target size={14} md:size={22} />
                                     </div>
-                                    <h4 className="text-slate-900 font-serif text-xl mb-2 tracking-tight">Alpha Max</h4>
-                                    <p className="text-slate-600 text-xs font-medium leading-relaxed">ML-driven factor detection across NSE & BSE.</p>
+                                    <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight">Alpha Max</h4>
+                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-none">ML-driven factor detection across NSE.</p>
                                 </div>
                             </div>
                         </motion.div>
                     </div>
 
                     <div className="w-full lg:w-7/12">
-                        <div className="glass-card rounded-[56px] overflow-hidden relative shadow-3xl">
-                            <div className="p-8 border-b border-black/5 flex justify-between items-center bg-black/[0.01]">
-                                <div className="flex items-center gap-4">
-                                    <div className="w-2.5 h-2.5 bg-brand-orange rounded-full animate-pulse shadow-[0_0_16px_rgba(255,159,67,0.5)]" />
-                                    <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-slate-500 mono-data">Alpha_Stream_Live</span>
+                        <div className="glass-card rounded-[24px] md:rounded-[56px] overflow-hidden relative shadow-3xl">
+                            <div className="p-3 md:p-8 border-b border-black/5 flex justify-between items-center bg-black/[0.01]">
+                                <div className="flex items-center gap-2 md:gap-4">
+                                    <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 bg-brand-orange rounded-full animate-pulse shadow-[0_0_8px_rgba(255,159,67,0.5)]" />
+                                    <span className="text-[7px] md:text-[11px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-500 mono-data">Alpha_Stream_Live</span>
                                 </div>
-                                <div className="flex items-center gap-6 text-slate-400">
-                                    <span className="text-[10px] mono-data">BPS: 42k/s</span>
-                                    <BarChart3 size={16} />
+                                <div className="flex items-center gap-3 md:gap-6 text-slate-400">
+                                    <span className="text-[6px] md:text-[10px] mono-data">BPS: 42k/s</span>
+                                    <BarChart3 size={10} className="md:w-4 md:h-4" />
                                 </div>
                             </div>
 
-                            <div className="p-6 space-y-3 max-h-[600px] overflow-hidden">
+                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 max-h-[350px] md:max-h-[600px] overflow-hidden">
                                 <AnimatePresence mode="popLayout">
-                                    {signals.slice(0, 6).map((signal) => (
+                                    {signals.slice(0, 5).map((signal) => (
                                         <motion.div
                                             key={signal.id}
                                             layout
                                             initial={{ opacity: 0, scale: 0.95 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                            className="p-6 rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
+                                            className="p-2.5 md:p-6 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
                                         >
-                                            <div className="flex items-center gap-6 text-left">
-                                                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
+                                            <div className="flex items-center gap-3 md:gap-6 text-left">
+                                                <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
                                                     signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
                                                     }`}>
-                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={20} /> :
-                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={20} /> :
-                                                            <Activity size={20} />}
+                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={12} md:size={20} /> :
+                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={12} md:size={20} /> :
+                                                            <Activity size={12} md:size={20} />}
                                                 </div>
                                                 <div>
-                                                    <h4 className="font-serif text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium">{signal.asset}</h4>
-                                                    <p className="text-[11px] text-slate-500 font-medium mt-1 uppercase tracking-wide">{signal.signal}</p>
+                                                    <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>
+                                                    <p className="text-[5.5px] md:text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wide leading-none">{signal.signal}</p>
                                                 </div>
                                             </div>
-                                            <div className="text-right flex items-center gap-8">
+                                            <div className="text-right flex items-center gap-3 md:gap-8">
                                                 <div className="flex flex-col items-end">
-                                                    <span className={`text-[12px] font-bold mono-data ${signal.yield.startsWith('+') ? 'text-brand-orange' : 'text-black'}`}>
+                                                    <span className={`text-[8px] md:text-[12px] font-bold mono-data leading-none ${signal.yield.startsWith('+') ? 'text-brand-orange' : 'text-black'}`}>
                                                         {signal.yield}
                                                     </span>
-                                                    <span className="text-[9px] text-slate-500 font-bold mono-data">{signal.timestamp}</span>
+                                                    <span className="text-[5px] md:text-[9px] text-slate-500 font-bold mono-data leading-none mt-0.5">{signal.timestamp}</span>
                                                 </div>
-                                                <div className="hidden sm:block">
+                                                <div className="flex">
                                                     <SparklineGraph type={signal.type} />
                                                 </div>
                                             </div>

@@ -18,40 +18,40 @@ const testimonials = [
 const TalentTestimonials = () => {
     return (
         <section className="section-py bg-transparent">
-            <div className="container max-w-7xl mx-auto px-6 md:px-12">
-                <div className="text-center mb-12 md:mb-16">
+            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+                <div className="text-center mb-10 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-6 md:mb-8 text-slate-900">
+                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-4 md:mb-8 text-slate-900">
                             Voice of the <span className="text-fade">Frontier.</span>
                         </h2>
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                <div className="grid grid-cols-2 gap-2 md:gap-8">
                     {testimonials.map((test, i) => (
                         <motion.div
                             key={i}
                             initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="glass-card p-8 md:p-10 rounded-2xl md:rounded-[40px] relative overflow-hidden group"
+                            className="glass-card p-2 md:p-10 rounded-lg md:rounded-[40px] relative overflow-hidden group min-h-[110px] md:min-h-auto flex flex-col justify-between"
                         >
-                            <Quote className="absolute top-6 right-6 md:top-8 md:right-8 text-brand-orange/10 group-hover:text-brand-orange/20 transition-colors" size={40} />
+                            <Quote className="absolute top-1.5 right-1.5 md:top-8 md:right-8 text-brand-orange/10 group-hover:text-brand-orange/20 transition-colors md:w-6 md:h-6" size={12} />
 
-                            <p className="text-slate-800 text-base md:text-lg font-semibold mb-8 md:mb-10 relative z-10 leading-snug tracking-tight">
+                            <p className="text-slate-800 text-[7.5px] md:text-lg font-semibold mb-2 md:mb-10 relative z-10 leading-snug tracking-tight text-left italic">
                                 "{test.quote}"
                             </p>
 
                             <div className="relative z-10 text-left">
-                                <h4 className="text-slate-900 font-serif text-base md:text-lg mb-0.5 md:mb-1 tracking-tight">{test.author}</h4>
-                                <p className="text-brand-orange text-[9px] md:text-[10px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em]">{test.firm}</p>
+                                <h4 className="text-slate-900 font-serif text-[7.5px] md:text-lg mb-0.5 md:mb-1 tracking-tight leading-none">{test.author}</h4>
+                                <p className="text-brand-orange text-[5.5px] md:text-[10px] font-bold uppercase tracking-wider leading-none">{test.firm}</p>
                             </div>
 
-                            <div className="absolute -bottom-12 -right-12 md:-bottom-16 md:-right-16 w-36 h-36 md:w-48 md:h-48 bg-brand-orange/5 blur-[50px] md:blur-[60px] rounded-full" />
+                            <div className="absolute -bottom-10 -right-10 md:-bottom-16 md:-right-16 w-20 h-20 md:w-48 md:h-48 bg-brand-orange/5 blur-[30px] md:blur-[60px] rounded-full" />
                         </motion.div>
                     ))}
                 </div>

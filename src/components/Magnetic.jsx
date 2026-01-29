@@ -6,6 +6,7 @@ export default function Magnetic({ children }) {
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (e) => {
+        if (window.matchMedia('(pointer: coarse)').matches) return;
         const { clientX, clientY } = e;
         const { height, width, left, top } = ref.current.getBoundingClientRect();
         const middleX = clientX - (left + width / 2)
@@ -24,7 +25,7 @@ export default function Magnetic({ children }) {
             ref={ref}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            animate={{ x, y }}
+            animate={{ x: window.matchMedia('(pointer: coarse)').matches ? 0 : x, y: window.matchMedia('(pointer: coarse)').matches ? 0 : y }}
             transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
         >
             {children}
