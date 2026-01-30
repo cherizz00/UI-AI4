@@ -112,11 +112,11 @@ const TalentAgent = () => {
                         </motion.div>
 
                         <h2 className="text-fluid-h2 font-serif tracking-tight mb-1.5 md:mb-6 text-slate-900 leading-tight">
-                            Autonomous <br />
-                            <span className="text-fade underline decoration-brand-orange/50 underline-offset-4 md:underline-offset-8">Research Agents.</span>
+                            Agentic <br />
+                            <span className="text-fade underline decoration-brand-orange/50 underline-offset-4 md:underline-offset-8">Research Browser.</span>
                         </h2>
                         <p className="text-slate-800 text-[6.5px] md:text-base font-semibold mb-2 md:mb-8 max-w-lg leading-tight italic">
-                            Tracking macro regime shifts to synthesizing earnings calls, 24/7.
+                            Experience the soothing effects of autonomous intelligence synthesizing the market 24/7.
                         </p>
 
                         <ul className="space-y-0.5 md:space-y-4 mb-2 md:mb-8">

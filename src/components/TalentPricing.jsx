@@ -5,7 +5,7 @@ import { Check, Zap, Shield, Crown } from 'lucide-react';
 const pricingPans = [
     {
         name: "Daily Intelligence",
-        price: "₹4,999",
+        price: "₹999",
         description: "The essential pre-market briefing used by India's top retail quants.",
         features: ["Daily 8:00 AM Execution Brief", "NIFTY & BANK NIFTY Levels", "Institutional Flow Decoding", "Volatility & Risk Alerts", "No Fluff, Just Alpha"],
         icon: Zap,
@@ -13,7 +13,7 @@ const pricingPans = [
     },
     {
         name: "Research Platform",
-        price: "₹1,000",
+        price: "₹3,999",
         description: "Phase 2: Expanded equity & macro research.",
         features: ["Full Equity Coverage", "Long-term Company Analysis", "Agentic AI Browser", "Macro Trend Tracking", "Personalized Assistant"],
         icon: Crown,

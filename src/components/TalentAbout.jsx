@@ -5,8 +5,8 @@ import DashboardMockup from '../assets/dashboard-mockup.png';
 
 const features = [
     {
-        title: "Model Integrity",
-        desc: "Rigorous backtesting and validation across all market regimes.",
+        title: "Models Trained",
+        desc: "15,000+ proprietary neural networks optimized for NSE dynamics.",
         icon: Shield,
         color: "text-brand-orange"
     },
@@ -17,8 +17,8 @@ const features = [
         color: "text-slate-900"
     },
     {
-        title: "Precision Alpha",
-        desc: "Identifying structural inefficiencies with machine learning.",
+        title: "Parameters Trained",
+        desc: "2.4 Billion parameters synthesized across global macro data.",
         icon: Target,
         color: "text-brand-orange"
     },

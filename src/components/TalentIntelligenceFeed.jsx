@@ -113,8 +113,8 @@ const TalentIntelligenceFeed = () => {
                         <div className="glass-card rounded-[24px] md:rounded-[56px] overflow-hidden relative shadow-3xl">
                             <div className="p-3 md:p-8 border-b border-black/5 flex justify-between items-center bg-black/[0.01]">
                                 <div className="flex items-center gap-2 md:gap-4">
-                                    <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 bg-brand-orange rounded-full animate-pulse shadow-[0_0_8px_rgba(255,159,67,0.5)]" />
-                                    <span className="text-[7px] md:text-[11px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-slate-500 mono-data">Alpha_Stream_Live</span>
+                                    <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 bg-black rounded-full animate-pulse shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
+                                    <span className="text-[7px] md:text-[11px] font-bold uppercase tracking-[0.2em] md:tracking-[0.3em] text-transparent mono-data" style={{ WebkitTextStroke: '0.4px black' }}>Alpha_Stream_Live</span>
                                 </div>
                                 <div className="flex items-center gap-3 md:gap-6 text-slate-400">
                                     <span className="text-[6px] md:text-[10px] mono-data">BPS: 42k/s</span>
