@@ -24,7 +24,7 @@ const steps = [
 const TalentHiring = () => {
     return (
         <section className="section-py bg-transparent relative overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <div className="grid grid-cols-2 gap-2 md:gap-24 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -35,7 +35,7 @@ const TalentHiring = () => {
                             The Search for <br />
                             <span className="brand-highlight">Elite Alpha.</span>
                         </h2>
-                        <p className="text-slate-800 text-[6px] md:text-base font-semibold mb-3 md:mb-10 max-w-xl text-left leading-tight px-1">
+                        <p className="text-slate-800 text-[11px] md:text-base font-semibold mb-3 md:mb-10 max-w-xl text-left leading-tight px-1">
                             We partner with mathematical artisans who find signal where the world sees noise.
                         </p>
 
@@ -46,8 +46,8 @@ const TalentHiring = () => {
                                         <step.icon size={8} />
                                     </div>
                                     <div className="text-left">
-                                        <h4 className="text-black font-serif text-[7.5px] md:text-base mb-0 tracking-tight leading-none">{step.title}</h4>
-                                        <p className="text-slate-500 text-[5px] md:text-xs font-light leading-none">{step.desc}</p>
+                                        <h4 className="text-black font-serif text-[10px] md:text-base mb-0 tracking-tight leading-none">{step.title}</h4>
+                                        <p className="text-slate-500 text-[7px] md:text-xs font-light leading-none">{step.desc}</p>
                                     </div>
                                 </div>
                             ))}

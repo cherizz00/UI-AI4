@@ -26,7 +26,7 @@ const TalentFAQ = () => {
 
     return (
         <section className="section-py bg-transparent relative overflow-hidden">
-            <div className="container max-w-4xl mx-auto px-4 md:px-12 relative z-10">
+            <div className="container max-w-4xl mx-auto relative z-10">
                 <div className="text-center mb-16 md:mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -56,7 +56,7 @@ const TalentFAQ = () => {
                                 onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                                 className="w-full flex items-center justify-between p-2.5 md:p-8 text-left cursor-pointer"
                             >
-                                <span className={`font-serif text-[10px] md:text-xl tracking-tight transition-colors leading-none ${openIndex === i ? 'text-brand-orange' : 'text-slate-900'}`}>
+                                <span className={`font-serif text-[11px] md:text-2xl tracking-tight transition-colors leading-none ${openIndex === i ? 'text-brand-orange' : 'text-slate-900'}`}>
                                     {item.q}
                                 </span>
                                 <div className={`w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === i ? 'bg-brand-orange text-white rotate-180' : 'bg-black/5 text-slate-900'}`}>
@@ -72,7 +72,7 @@ const TalentFAQ = () => {
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                     >
                                         <div className="px-3 md:px-8 pb-3 md:pb-8 pt-0">
-                                            <p className="text-slate-600 font-light leading-tight text-[8.5px] md:text-base border-t border-black/5 pt-2">
+                                            <p className="text-slate-600 font-semibold leading-tight text-[9px] md:text-lg border-t border-black/5 pt-3">
                                                 {item.a}
                                             </p>
                                         </div>

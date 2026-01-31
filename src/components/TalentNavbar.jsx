@@ -22,16 +22,13 @@ const TalentNavbar = ({ setView }) => {
 
     return (
         <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled ? 'py-2' : 'py-4 md:py-6'}`}>
-            <div className="container max-w-7xl mx-auto px-4 md:px-8">
+            <div className="container max-w-7xl mx-auto">
                 <motion.div
                     layout
-                    className={`bg-white/0 backdrop-blur-2xl border border-white/100 flex items-center justify-center sm:justify-between gap-4 transition-all duration-700 relative group px-4 md:px-8 py-2 md:py-2.5 rounded-full ${scrolled ? 'shadow-[0_4px_30px_rgba(0,0,0,0.1)]' : 'shadow-lg'}`}
+                    className={`bg-white/0 backdrop-blur-2xl border border-white/100 flex items-center justify-between gap-4 transition-all duration-700 relative group px-4 md:px-8 py-2 md:py-2.5 rounded-full ${scrolled ? 'shadow-[0_4px_30px_rgba(0,0,0,0.1)]' : 'shadow-lg'}`}
                 >
-
-
-
                     <a href="/" className="flex items-center group shrink-0 relative z-10">
-                        <span className="text-sm sm:text-2xl md:text-3xl font-bold tracking-tighter text-slate-900">
+                        <span className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tighter text-slate-900">
                             <span className="text-fade" style={{ letterSpacing: '-0.5px' }}>AI4</span>INVEST
                         </span>
                     </a>

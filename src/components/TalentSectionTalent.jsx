@@ -11,7 +11,7 @@ const items = [
 const TalentSectionTalent = () => {
     return (
         <section className="section-py bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <div className="flex flex-row-reverse gap-2 md:gap-24 items-center">
                     <div className="w-1/2 lg:w-1/2">
                         <motion.div

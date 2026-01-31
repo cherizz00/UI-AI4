@@ -20,7 +20,7 @@ const recruiters = [
 const TalentRecruiters = () => {
     return (
         <section className="section-py bg-transparent">
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <div className="text-center mb-10 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -44,19 +44,21 @@ const TalentRecruiters = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ delay: i * 0.1 }}
                             viewport={{ once: true }}
-                            className="glass-card p-1 md:p-10 rounded-lg sm:rounded-[40px] transition-all group flex items-start gap-1.5 md:gap-8"
+                            className="glass-card p-2 md:p-10 rounded-lg sm:rounded-[40px] transition-all group flex items-start gap-1.5 md:gap-8 min-h-[50px] md:min-h-[140px]"
                         >
                             <div className="w-7 h-7 md:w-16 md:h-16 rounded-md md:rounded-2xl glass-100 flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all duration-500 shrink-0">
                                 <rec.icon size={12} className="md:w-8 md:h-8" />
                             </div>
-                            <div className="text-left">
-                                <h4 className="text-[9px] md:text-xl font-serif text-slate-900 mb-0.5 md:mb-2 tracking-tight leading-none">{rec.name}</h4>
-                                <div className="flex flex-wrap items-center gap-1.5">
+                            <div className="text-left flex flex-col justify-center">
+                                <h4 className="text-[9px] md:text-xl font-serif text-slate-900 mb-0.5 md:mb-2 tracking-tight leading-none line-clamp-1">{rec.name}</h4>
+                                <div className="flex flex-wrap items-center gap-1.5 mt-auto">
                                     <span className="text-slate-500 text-[6px] md:text-[10px] font-bold uppercase tracking-widest leading-none">{rec.type}</span>
-                                    <div className="flex items-center gap-0.5 text-brand-orange">
-                                        <Star size={7} className="fill-current" />
-                                        <span className="text-[7.5px] font-bold leading-none">{rec.rating}</span>
-                                    </div>
+                                    {rec.rating && (
+                                        <div className="flex items-center gap-0.5 text-brand-orange border-l border-black/5 pl-1.5 ml-1.5">
+                                            <Star size={7} className="fill-current md:w-3 md:h-3" />
+                                            <span className="text-[7.5px] md:text-xs font-bold leading-none">{rec.rating}</span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>

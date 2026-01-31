@@ -23,7 +23,7 @@ const TalentFooter = () => {
 
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[0.5px] md:h-1 bg-brand-orange shadow-[0_0_80px_20px_rgba(255,159,67,0.2)]" />
 
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <div className="grid grid-cols-4 gap-2 md:gap-16 mb-8 md:mb-16">
                     <div className="col-span-1 text-left">
                         <a href="/" className="flex items-center mb-4 group">
@@ -46,11 +46,11 @@ const TalentFooter = () => {
                     <div className="col-span-3 grid grid-cols-3 gap-2 md:gap-10 text-left px-2">
                         {footerLinks.map((section, i) => (
                             <div key={i}>
-                                <h4 className="text-slate-900 font-serif text-[7px] md:text-base mb-2 md:mb-6 tracking-wide leading-none">{section.title}</h4>
-                                <ul className="space-y-1 md:space-y-3">
+                                <h4 className="text-slate-900 font-serif text-[8.5px] md:text-xl mb-2 md:mb-6 tracking-wide leading-none uppercase">{section.title}</h4>
+                                <ul className="space-y-1.5 md:space-y-4">
                                     {section.links.map((link, j) => (
                                         <li key={j}>
-                                            <a href="#" className="text-slate-500 hover:text-brand-orange transition-colors font-light text-[6px] md:text-xs leading-none">
+                                            <a href="#" className="text-slate-500 hover:text-brand-orange transition-colors font-semibold text-[7px] md:text-sm leading-none uppercase tracking-wider">
                                                 {link}
                                             </a>
                                         </li>

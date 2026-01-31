@@ -96,7 +96,7 @@ const TalentAgent = () => {
 
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[250px] md:w-[600px] h-[250px] md:h-[600px] bg-brand-orange/5 blur-[80px] md:blur-[150px] rounded-full pointer-events-none -z-10" />
 
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <div className="flex flex-row gap-2 md:gap-24 items-center">
 
 
@@ -116,7 +116,7 @@ const TalentAgent = () => {
                             <span className="text-fade underline decoration-brand-orange/50 underline-offset-4 md:underline-offset-8">Research Browser.</span>
                         </h2>
                         <p className="text-slate-800 text-[6.5px] md:text-base font-semibold mb-2 md:mb-8 max-w-lg leading-tight italic">
-                            Experience the soothing effects of autonomous intelligence synthesizing the market 24/7.
+                            Experience the soothing effects of autonomous intelligence processing billions of parameters 24/7.
                         </p>
 
                         <ul className="space-y-0.5 md:space-y-4 mb-2 md:mb-8">
@@ -126,9 +126,9 @@ const TalentAgent = () => {
                                 "Sentiment Scoring",
                                 "Report Generation"
                             ].map((item, i) => (
-                                <li key={i} className="flex items-center gap-1 md:gap-2">
-                                    <div className="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-brand-orange" />
-                                    <span className="text-[6px] md:text-sm text-slate-600 font-medium leading-none">{item}</span>
+                                <li key={i} className="flex items-center gap-1 md:gap-2 h-4 md:h-6">
+                                    <div className="w-0.5 h-0.5 md:w-1 md:h-1 rounded-full bg-brand-orange shrink-0" />
+                                    <span className="text-[6px] md:text-sm text-slate-600 font-bold uppercase tracking-widest leading-none">{item}</span>
                                 </li>
                             ))}
                         </ul>

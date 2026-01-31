@@ -70,7 +70,7 @@ const TalentIntelligenceFeed = () => {
 
     return (
         <section id="intelligence" className="section-py bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
                     <div className="w-full lg:w-5/12 lg:sticky lg:top-32">
                         <motion.div
@@ -78,7 +78,7 @@ const TalentIntelligenceFeed = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-brand-orange/5 border border-brand-orange/10 text-brand-orange text-[7px] md:text-[9px] font-bold uppercase tracking-widest mb-3 md:mb-6">
+                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-brand-orange/5 border border-brand-orange/10 text-brand-orange text-[9px] md:text-[9px] font-bold uppercase tracking-widest mb-3 md:mb-6">
                                 <TrendingUp size={10} />
                                 <span>Pre-Market Signals</span>
                             </div>
@@ -86,24 +86,24 @@ const TalentIntelligenceFeed = () => {
                                 The Signal in <br />
                                 <span className="text-fade underline decoration-brand-orange/50 underline-offset-4 md:underline-offset-8">The Noise.</span>
                             </h2>
-                            <p className="text-slate-800 text-[8px] md:text-base font-semibold mb-4 md:mb-8 max-w-lg text-left leading-tight italic">
+                            <p className="text-slate-800 text-[12px] md:text-base font-semibold mb-4 md:mb-8 max-w-lg text-left leading-tight italic">
                                 Identifying structural inefficiencies before they manifest in price.
                             </p>
 
                             <div className="grid grid-cols-2 gap-2 md:gap-6 text-left">
-                                <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card">
-                                    <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-2 md:mb-8">
+                                <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card min-h-[85px] md:min-h-[220px] flex flex-col justify-center">
+                                    <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-2 md:mb-8 shrink-0">
                                         <Cpu size={14} md:size={22} />
                                     </div>
-                                    <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight">Latency Zero</h4>
-                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-none">Co-located for sub-millisecond reactions.</p>
+                                    <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight leading-none">Latency Zero</h4>
+                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">Co-located for sub-millisecond reactions.</p>
                                 </div>
-                                <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card">
-                                    <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-black/5 flex items-center justify-center text-black mb-2 md:mb-8">
+                                <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card min-h-[85px] md:min-h-[220px] flex flex-col justify-center">
+                                    <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-black/5 flex items-center justify-center text-black mb-2 md:mb-8 shrink-0">
                                         <Target size={14} md:size={22} />
                                     </div>
-                                    <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight">Alpha Max</h4>
-                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-none">ML-driven factor detection across NSE.</p>
+                                    <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight leading-none">Alpha Max</h4>
+                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">ML-driven factor detection across NSE.</p>
                                 </div>
                             </div>
                         </motion.div>

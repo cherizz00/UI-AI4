@@ -62,7 +62,7 @@ const TalentBento = () => {
 
     return (
         <section id="features" className="section-py bg-transparent overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-4 md:px-8">
+            <div className="container max-w-7xl mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

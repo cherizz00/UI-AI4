@@ -18,7 +18,7 @@ const testimonials = [
 const TalentTestimonials = () => {
     return (
         <section className="section-py bg-transparent">
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <div className="text-center mb-10 md:mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -42,13 +42,13 @@ const TalentTestimonials = () => {
                         >
                             <Quote className="absolute top-1.5 right-1.5 md:top-8 md:right-8 text-brand-orange/10 group-hover:text-brand-orange/20 transition-colors md:w-6 md:h-6" size={12} />
 
-                            <p className="text-slate-800 text-[7.5px] md:text-lg font-semibold mb-2 md:mb-10 relative z-10 leading-snug tracking-tight text-left italic">
+                            <p className="text-slate-800 text-sm md:text-lg font-semibold mb-2 md:mb-10 relative z-10 leading-snug tracking-tight text-left italic">
                                 "{test.quote}"
                             </p>
 
                             <div className="relative z-10 text-left">
-                                <h4 className="text-slate-900 font-serif text-[7.5px] md:text-lg mb-0.5 md:mb-1 tracking-tight leading-none">{test.author}</h4>
-                                <p className="text-brand-orange text-[5.5px] md:text-[10px] font-bold uppercase tracking-wider leading-none">{test.firm}</p>
+                                <h4 className="text-slate-900 font-serif text-sm md:text-lg mb-0.5 md:mb-1 tracking-tight leading-none">{test.author}</h4>
+                                <p className="text-brand-orange text-[9px] md:text-[10px] font-bold uppercase tracking-wider leading-none">{test.firm}</p>
                             </div>
 
                             <div className="absolute -bottom-10 -right-10 md:-bottom-16 md:-right-16 w-20 h-20 md:w-48 md:h-48 bg-brand-orange/5 blur-[30px] md:blur-[60px] rounded-full" />

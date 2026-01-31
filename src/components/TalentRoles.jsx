@@ -32,7 +32,7 @@ const roadmapSteps = [
 const TalentRoles = () => {
     return (
         <section id="roadmap" className="section-py bg-transparent relative overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-4 md:px-12">
+            <div className="container max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -77,18 +77,18 @@ const TalentRoles = () => {
                                 </div>
 
 
-                                <div className="glass-card p-1.5 rounded-lg md:p-8 rounded-xl md:rounded-3xl w-full min-h-[85px] md:min-h-[240px] flex flex-col items-center hover:bg-white transition-colors">
-                                    <span className={`text-[6px] md:text-[10px] font-bold uppercase tracking-wider md:tracking-[0.2em] mb-1 md:mb-4 ${i === 0 ? 'text-brand-orange' : 'text-slate-400'}`}>
+                                <div className="glass-card p-2 rounded-lg md:p-10 rounded-xl md:rounded-[40px] w-full min-h-[100px] md:min-h-[320px] flex flex-col items-center hover:bg-white transition-all group-hover:border-brand-orange/30">
+                                    <span className={`text-[6px] md:text-[12px] font-bold uppercase tracking-wider md:tracking-[0.3em] mb-1 md:mb-6 ${i === 0 ? 'text-brand-orange' : 'text-slate-400'}`}>
                                         {step.phase}
                                     </span>
-                                    <h3 className="text-[7.5px] md:text-xl font-serif text-slate-900 mb-0.5 md:mb-4 leading-none">{step.title}</h3>
-                                    <p className="text-slate-600 text-[6.5px] md:text-xs font-medium leading-[1.2] mb-2 px-1">
+                                    <h3 className="text-[8.5px] md:text-2xl font-serif text-slate-900 mb-1 md:mb-6 leading-none">{step.title}</h3>
+                                    <p className="text-slate-600 text-[6.5px] md:text-sm font-medium leading-[1.3] mb-4 px-2 max-w-[280px]">
                                         {step.desc}
                                     </p>
 
-                                    <div className="mt-auto flex flex-wrap justify-center gap-0.5">
-                                        {step.features.slice(0, 2).map((feat, j) => (
-                                            <span key={j} className="px-1 py-0.5 rounded-sm bg-black/5 text-[4.5px] font-bold text-slate-600 uppercase tracking-tighter leading-none">
+                                    <div className="mt-auto flex flex-wrap justify-center gap-1">
+                                        {step.features.map((feat, j) => (
+                                            <span key={j} className="px-1.5 py-0.5 rounded-sm bg-black/5 text-[5px] md:text-[9px] font-bold text-slate-500 uppercase tracking-widest leading-none">
                                                 {feat}
                                             </span>
                                         ))}
