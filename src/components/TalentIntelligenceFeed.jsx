@@ -57,9 +57,9 @@ const SignalItem = React.memo(({ signal }) => (
             <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
                 signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
                 }`}>
-                {signal.type === 'BULLISH' ? <ArrowUpRight size={12} md:size={20} /> :
-                    signal.type === 'BEARISH' ? <ArrowDownRight size={12} md:size={20} /> :
-                        <Activity size={12} md:size={20} />}
+                {signal.type === 'BULLISH' ? <ArrowUpRight className="w-3 h-3 md:w-5 md:h-5" /> :
+                    signal.type === 'BEARISH' ? <ArrowDownRight className="w-3 h-3 md:w-5 md:h-5" /> :
+                        <Activity className="w-3 h-3 md:w-5 md:h-5" />}
             </div>
             <div>
                 <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>
@@ -128,14 +128,14 @@ const TalentIntelligenceFeed = () => {
                             <div className="grid grid-cols-2 gap-2 md:gap-6 text-left">
                                 <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card min-h-[85px] md:min-h-[220px] flex flex-col justify-center">
                                     <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-2 md:mb-8 shrink-0">
-                                        <Cpu size={14} md:size={22} />
+                                        <Cpu className="w-3.5 h-3.5 md:w-5.5 md:h-5.5" />
                                     </div>
                                     <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight leading-none">Latency Zero</h4>
                                     <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">Co-located for sub-millisecond reactions.</p>
                                 </div>
                                 <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card min-h-[85px] md:min-h-[220px] flex flex-col justify-center">
                                     <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-black/5 flex items-center justify-center text-black mb-2 md:mb-8 shrink-0">
-                                        <Target size={14} md:size={22} />
+                                        <Target className="w-3.5 h-3.5 md:w-5.5 md:h-5.5" />
                                     </div>
                                     <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight leading-none">Alpha Max</h4>
                                     <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">ML-driven factor detection across NSE.</p>
