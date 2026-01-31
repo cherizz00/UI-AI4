@@ -98,6 +98,7 @@
     white-space: nowrap;
     animation: marquee 40s linear infinite;
     min-width: 100%;
+    will-change: transform;
 
     @media (pointer: coarse) {
         animation-play-state: running;
@@ -133,15 +134,21 @@
     background-position: center center;
 }
 
+@utility bg-noise {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX18fX17fX16fX15fX14fX13fX12fX11fX10fX1zfX1yfX1xfX1wfX1vewpJAAAAD3RSTlMAAK9vW8Wvb1vFr29bxa8JCQfLAAAAAnRSTlMAAHaTzTgAAAAnSURBVHgBvZZRCsAwDMNu09z/ztsc7E0YVf0YfS+SIdYy9h69v7z/7S9uAgmJAAAAAElFTkSuQmCC");
+}
+
 @utility glass-card {
     background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.01),
-        0 10px 15px -3px rgba(0, 0, 0, 0.02);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        0 4px 6px -1px rgba(0, 0, 0, 0.02),
+        0 10px 15px -3px rgba(0, 0, 0, 0.04),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, backdrop-filter;
 
     @media (hover: hover) {
         &:hover {
@@ -158,18 +165,24 @@
 
 @utility glass-100 {
     background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(8px) saturate(140%);
-    -webkit-backdrop-filter: blur(8px) saturate(140%);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(50px) saturate(180%);
+    -webkit-backdrop-filter: blur(50px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.02),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 @utility ultra-glass {
     background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(16px) saturate(200%);
+    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     box-shadow:
-        0 8px 32px 0 rgba(0, 0, 0, 0.05);
+        0 8px 32px 0 rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+        0 0 0 1px rgba(0, 0, 0, 0.03);
+    will-change: transform, backdrop-filter;
 }
 
 @utility text-fluid-h1 {
@@ -319,9 +332,13 @@
 
 @utility glass {
     background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px) saturate(160%);
-    -webkit-backdrop-filter: blur(12px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.06),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    will-change: backdrop-filter;
 }
 
 
@@ -498,6 +515,7 @@
 @utility ticker-content {
     display: inline-flex;
     animation: ticker-scroll 30s linear infinite;
+    will-change: transform;
 
     @media (pointer: coarse) {
         animation-play-state: running;
@@ -740,9 +758,10 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        opacity: 0.02;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        opacity: 0.03;
         pointer-events: none;
+        mix-blend-mode: overlay;
     }
 }
 

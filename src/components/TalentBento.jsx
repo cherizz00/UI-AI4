@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { BrainCircuit, Database, ShieldCheck, LineChart, Zap, Globe, Fingerprint } from 'lucide-react';
-import talentNetwork from '../assets/talent-network.png';
-import algoStrategy from '../assets/algo-strategy.png';
 
 const bentoItems = [
     {
@@ -107,7 +105,6 @@ const TalentBento = () => {
                                     `,
                                 }}
                             />
-
 
                             <div className="relative z-10 flex justify-between items-start">
                                 <div className={`w-7 h-7 md:w-16 md:h-16 rounded-lg bg-black/5 flex items-center justify-center ${item.color} group-hover:bg-brand-orange group-hover:text-white transition-all duration-500`}>

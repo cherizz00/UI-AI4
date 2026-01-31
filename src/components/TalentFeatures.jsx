@@ -24,7 +24,6 @@ const featureList = [
 ];
 
 const TalentFeatures = () => {
-
     return (
         <section className="section-py bg-transparent overflow-hidden">
             <div className="container max-w-7xl mx-auto">
@@ -38,7 +37,6 @@ const TalentFeatures = () => {
                             viewport={{ once: true }}
                             className="p-1.5 md:p-14 glass-card rounded-lg md:rounded-[48px] group relative overflow-hidden min-h-[100px] md:min-h-[400px] flex flex-col"
                         >
-
                             <div className={`w-7 h-7 md:w-16 md:h-16 rounded-lg bg-black/[0.03] flex items-center justify-center ${f.color} mb-1.5 md:mb-8 group-hover:bg-brand-orange group-hover:text-white transition-all duration-500 shrink-0`}>
                                 <f.icon size={12} className="md:w-7 md:h-7" />
                             </div>

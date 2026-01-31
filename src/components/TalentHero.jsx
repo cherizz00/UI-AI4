@@ -37,7 +37,7 @@ const logos = [
     { ticker: "WIPRO", logo: Wipro, color: "text-[#712D91]" }
 ];
 
-const dataPoints = Array.from({ length: 10 }, (_, i) => ({
+const dataPoints = Array.from({ length: 8 }, (_, i) => ({
     id: i,
     val: (Math.random() * 1000).toFixed(4),
     left: `${Math.random() * 100}%`,
@@ -189,7 +189,7 @@ const TalentHero = () => {
                 >
                     <div className="animate-marquee flex items-center gap-2 md:gap-12 pr-2 md:pr-12">
                         {[...logos, ...logos].map((logo, idx) => (
-                            <div key={idx} className="flex items-center gap-1.5 md:gap-4 shrink-0 group/logo cursor-default px-2.5 py-2 md:px-6 md:py-4 rounded-lg md:rounded-2xl bg-white/40 border border-black/5 hover:bg-white transition-all duration-300 min-w-[100px] md:min-w-[180px] min-h-[40px] md:min-h-[70px] justify-center">
+                            <div key={idx} className="glass-card flex items-center gap-1.5 md:gap-4 shrink-0 group/logo cursor-default px-2.5 py-2 md:px-6 md:py-4 rounded-lg md:rounded-2xl hover:bg-white transition-all duration-300 min-w-[100px] md:min-w-[180px] min-h-[40px] md:min-h-[70px] justify-center">
                                 <div className="w-5 h-5 md:w-10 md:h-10 rounded-full bg-black/5 flex items-center justify-center p-0.5 md:p-1.5 transition-transform duration-500">
                                     <img
                                         src={logo.logo}

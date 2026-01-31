@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, ArrowUpRight, ArrowDownRight, Zap, Target, BarChart3, TrendingUp, Cpu } from 'lucide-react';
 
@@ -23,12 +23,11 @@ const SparklineGraph = React.memo(({ type }) => {
     const isBearish = type === 'BEARISH';
     const color = isBullish ? '#22c55e' : isBearish ? '#ef4444' : '#94a3b8';
 
-    const pathData = useMemo(() => isBullish
+    const pathData = isBullish
         ? "M2 22 L8 18 L14 20 L20 12 L26 15 L32 8 L38 10 L44 4 L50 2"
         : isBearish
             ? "M2 5 L8 8 L14 6 L20 15 L26 12 L32 20 L38 18 L44 24 L50 26"
-            : "M2 14 L8 16 L14 13 L20 15 L26 14 L32 16 L38 13 L44 15 L50 14"
-        , [type]);
+            : "M2 14 L8 16 L14 13 L20 15 L26 14 L32 16 L38 13 L44 15 L50 14";
 
     return (
         <div className="w-8 md:w-16 h-4 md:h-8 flex items-center justify-center scale-75 md:scale-100 origin-right">
@@ -39,69 +38,37 @@ const SparklineGraph = React.memo(({ type }) => {
                         <stop offset="100%" stopColor={color} stopOpacity="0" />
                     </linearGradient>
                 </defs>
-                <path d={pathData} stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d={pathData} stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d={`${pathData} L 52 28 L 0 28 Z`} fill={`url(#grad-${type})`} stroke="none" />
             </svg>
         </div>
     );
 });
-
-const SignalItem = React.memo(({ signal }) => (
-    <motion.div
-        layout
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
-        className="p-2.5 md:p-6 rounded-xl md:rounded-3xl bg-white/40 border border-black/5 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
-    >
-        <div className="flex items-center gap-3 md:gap-6 text-left">
-            <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
-                signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
-                }`}>
-                {signal.type === 'BULLISH' ? <ArrowUpRight className="w-3 h-3 md:w-5 md:h-5" /> :
-                    signal.type === 'BEARISH' ? <ArrowDownRight className="w-3 h-3 md:w-5 md:h-5" /> :
-                        <Activity className="w-3 h-3 md:w-5 md:h-5" />}
-            </div>
-            <div>
-                <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>
-                <p className="text-[5.5px] md:text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wide leading-none">{signal.signal}</p>
-            </div>
-        </div>
-        <div className="text-right flex items-center gap-3 md:gap-8">
-            <div className="flex flex-col items-end">
-                <span className={`text-[8px] md:text-[12px] font-bold mono-data leading-none ${signal.yield.startsWith('+') ? 'text-brand-orange' : 'text-black'}`}>
-                    {signal.yield}
-                </span>
-                <span className="text-[5px] md:text-[9px] text-slate-500 font-bold mono-data leading-none mt-0.5">{signal.timestamp}</span>
-            </div>
-            <div className="flex">
-                <SparklineGraph type={signal.type} />
-            </div>
-        </div>
-    </motion.div>
-));
 
 const TalentIntelligenceFeed = () => {
     const [signals, setSignals] = useState(mockSignals);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            const nextSignals = [...signals];
-            const first = nextSignals.shift();
+            setSignals(prev => {
+                const nextSignals = [...prev];
+                const first = nextSignals.shift();
 
-            const types = ['BULLISH', 'BEARISH'];
-            const type = types[Math.floor(Math.random() * types.length)];
+                const types = ['BULLISH', 'BEARISH', 'NEUTRAL'];
+                const type = types[Math.floor(Math.random() * types.length)];
 
-            nextSignals.push({
-                ...first,
-                id: Math.random(),
-                timestamp: new Date().toLocaleTimeString('en-GB'),
-                type: type,
-                yield: (Math.random() * 3).toFixed(1) + "%"
+                nextSignals.push({
+                    ...first,
+                    id: Math.random(),
+                    timestamp: new Date().toLocaleTimeString('en-GB'),
+                    type: type,
+                    yield: (Math.random() > 0.5 ? '+' : '-') + (Math.random() * 3).toFixed(1) + "%"
+                });
+                return nextSignals;
             });
-            setSignals(nextSignals);
         }, 3000);
         return () => clearInterval(interval);
-    }, [signals]);
+    }, []);
 
     return (
         <section id="intelligence" className="section-py bg-transparent overflow-hidden">
@@ -128,14 +95,14 @@ const TalentIntelligenceFeed = () => {
                             <div className="grid grid-cols-2 gap-2 md:gap-6 text-left">
                                 <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card min-h-[85px] md:min-h-[220px] flex flex-col justify-center">
                                     <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-2 md:mb-8 shrink-0">
-                                        <Cpu className="w-3.5 h-3.5 md:w-5.5 md:h-5.5" />
+                                        <Cpu size={14} md:size={22} />
                                     </div>
                                     <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight leading-none">Latency Zero</h4>
                                     <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">Co-located for sub-millisecond reactions.</p>
                                 </div>
                                 <div className="p-3 md:p-10 rounded-2xl md:rounded-[48px] glass-card min-h-[85px] md:min-h-[220px] flex flex-col justify-center">
                                     <div className="w-8 h-8 md:w-14 md:h-14 rounded-lg md:rounded-2xl bg-black/5 flex items-center justify-center text-black mb-2 md:mb-8 shrink-0">
-                                        <Target className="w-3.5 h-3.5 md:w-5.5 md:h-5.5" />
+                                        <Target size={14} md:size={22} />
                                     </div>
                                     <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight leading-none">Alpha Max</h4>
                                     <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">ML-driven factor detection across NSE.</p>
@@ -160,7 +127,39 @@ const TalentIntelligenceFeed = () => {
                             <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 max-h-[350px] md:max-h-[600px] overflow-hidden">
                                 <AnimatePresence mode="popLayout">
                                     {signals.slice(0, 5).map((signal) => (
-                                        <SignalItem key={signal.id} signal={signal} />
+                                        <motion.div
+                                            key={signal.id}
+                                            layout
+                                            initial={{ opacity: 0, scale: 0.95 }}
+                                            animate={{ opacity: 1, scale: 1 }}
+                                            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+                                            className="p-2.5 md:p-6 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
+                                        >
+                                            <div className="flex items-center gap-3 md:gap-6 text-left">
+                                                <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
+                                                    signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
+                                                    }`}>
+                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={12} md:size={20} /> :
+                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={12} md:size={20} /> :
+                                                            <Activity size={12} md:size={20} />}
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>
+                                                    <p className="text-[5.5px] md:text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wide leading-none">{signal.signal}</p>
+                                                </div>
+                                            </div>
+                                            <div className="text-right flex items-center gap-3 md:gap-8">
+                                                <div className="flex flex-col items-end">
+                                                    <span className={`text-[8px] md:text-[12px] font-bold mono-data leading-none ${signal.yield.startsWith('+') ? 'text-brand-orange' : 'text-black'}`}>
+                                                        {signal.yield}
+                                                    </span>
+                                                    <span className="text-[5px] md:text-[9px] text-slate-500 font-bold mono-data leading-none mt-0.5">{signal.timestamp}</span>
+                                                </div>
+                                                <div className="flex">
+                                                    <SparklineGraph type={signal.type} />
+                                                </div>
+                                            </div>
+                                        </motion.div>
                                     ))}
                                 </AnimatePresence>
                             </div>
