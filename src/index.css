@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -9,11 +9,11 @@
     --color-slate-500: #64748B;
     --color-slate-600: #475569;
 
-    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
     --font-serif: "Cormorant Garamond", serif;
     --font-jakarta: var(--font-sans);
     --font-beautique: var(--font-serif);
-    --font-inter: var(--font-sans);
+    --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
 
     --shadow-glow: 0 0 50px -10px rgba(255, 159, 67, 0.4);
     --color-beam: rgba(255, 159, 67, 0.4);
@@ -93,10 +93,39 @@
     }
 }
 
+@keyframes marquee-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
 @utility animate-marquee {
     display: flex;
     white-space: nowrap;
-    animation: marquee 40s linear infinite;
+    animation: marquee 25s linear infinite;
+    min-width: 100%;
+    will-change: transform;
+
+    @media (pointer: coarse) {
+        animation-play-state: running;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+@utility animate-marquee-reverse {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee-reverse 25s linear infinite;
     min-width: 100%;
     will-change: transform;
 
@@ -208,8 +237,8 @@
 }
 
 @utility section-py {
-    padding-top: clamp(2.5rem, 12vh, 9rem);
-    padding-bottom: clamp(2.5rem, 12vh, 9rem);
+    padding-top: clamp(4rem, 10vh, 10rem);
+    padding-bottom: clamp(4rem, 10vh, 10rem);
 }
 
 @utility text-fade {

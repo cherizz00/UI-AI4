@@ -3,19 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, ArrowUpRight, ArrowDownRight, Zap, Target, BarChart3, TrendingUp, Cpu } from 'lucide-react';
 
 const mockSignals = [
-    { id: 1, type: 'BULLISH', asset: 'ADANIENT', signal: 'Volume Breakout', strength: 'High', timestamp: '14:23:01', yield: '+2.4%' },
-    { id: 2, type: 'BEARISH', asset: 'RELIANCE', signal: 'MACD Crossover', strength: 'Medium', timestamp: '14:22:45', yield: '-1.2%' },
-    { id: 3, type: 'NEUTRAL', asset: 'NIFTY50', signal: 'Consolidation', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
-    { id: 4, type: 'BULLISH', asset: 'TCS', signal: 'RSI Divergence', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
-    { id: 5, type: 'BULLISH', asset: 'HDFCBANK', signal: 'Support Bounce', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
+    { id: 1, type: 'BULLISH', asset: 'NVDA', signal: 'Volume Breakout', strength: 'High', timestamp: '14:23:01', yield: '+2.4%' },
+    { id: 2, type: 'BEARISH', asset: 'AAPL', signal: 'MACD Crossover', strength: 'Medium', timestamp: '14:22:45', yield: '-1.2%' },
+    { id: 3, type: 'NEUTRAL', asset: 'MSFT', signal: 'Consolidation', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
+    { id: 4, type: 'BULLISH', asset: 'TSM', signal: 'RSI Divergence', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
+    { id: 5, type: 'BULLISH', asset: 'GOOGL', signal: 'Support Bounce', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
 ];
 
 const tickers = [
-    { label: "GIFT NIFTY", val: "+18.5 pts" },
-    { label: "USDINR", val: "83.12" },
-    { label: "BRENT CRUDE", val: "$77.4" },
-    { label: "INDIA VIX", val: "13.4" },
-    { label: "FII FLOW", val: "-₹450Cr" }
+    { label: "S&P 500", val: "+0.85%" },
+    { label: "NASDAQ 100", val: "+1.2%" },
+    { label: "EUR/USD", val: "1.0842" },
+    { label: "VIX INDEX", val: "14.2" },
+    { label: "GOLD OUNCE", val: "$2,042" }
 ];
 
 const SparklineGraph = React.memo(({ type }) => {
@@ -105,7 +105,7 @@ const TalentIntelligenceFeed = () => {
                                         <Target size={14} md:size={22} />
                                     </div>
                                     <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-1 tracking-tight leading-none">Alpha Max</h4>
-                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">ML-driven factor detection across NSE.</p>
+                                    <p className="text-slate-600 text-[6px] md:text-xs font-medium leading-tight mt-auto">ML-driven factor detection across Global Markets.</p>
                                 </div>
                             </div>
                         </motion.div>

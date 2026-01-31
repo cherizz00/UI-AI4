@@ -14,7 +14,7 @@ import TalentPricing from './TalentPricing';
 import TalentCTA from './TalentCTA';
 import TalentFAQ from './TalentFAQ';
 import TalentFooter from './TalentFooter';
-import TalentWhatWeDo from './TalentWhatWeDo';
+import TalentWhatWeBuild from './TalentWhatWeBuild';
 import SectionReveal from './SectionReveal';
 
 const TalentLanding = ({ setView }) => {
@@ -32,7 +32,7 @@ const TalentLanding = ({ setView }) => {
                 </SectionReveal>
 
                 <SectionReveal type="slide-up">
-                    <TalentWhatWeDo />
+                    <TalentWhatWeBuild />
                 </SectionReveal>
 
 

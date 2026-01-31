@@ -35,28 +35,35 @@ const TalentAbout = () => {
         <section id="about" className="section-py bg-transparent overflow-hidden">
             <div className="container max-w-7xl mx-auto">
                 <div className="grid grid-cols-2 gap-2 md:gap-24 items-center">
+
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         viewport={{ once: true }}
+                        className="flex flex-col"
                     >
-                        <h2 className="text-fluid-h2 font-serif tracking-tight mb-2 md:mb-8 leading-tight text-slate-900 text-left">
-                            Institutional <br />
-                            <span className="text-fade">AI Foundations.</span>
-                        </h2>
-                        <p className="text-slate-800 text-[11px] md:text-base font-semibold mb-4 md:mb-10 max-w-xl leading-tight text-left italic px-1">
-                            We compute the market. Institutional-grade ML reports, now available for you.
-                        </p>
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/5 border border-black/5 text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-4 md:mb-12 self-start">
+                            <Shield size={12} className="text-brand-orange" />
+                            <span>Institutional Foundations</span>
+                        </div>
 
-                        <div className="grid grid-cols-2 gap-1.5 md:gap-4 text-left">
+                        <div className="grid grid-cols-2 gap-4 md:gap-8 text-left">
                             {features.map((feature, i) => (
-                                <div key={i} className="group cursor-default min-h-[60px] md:min-h-[140px] flex flex-col">
-                                    <div className={`w-5 h-5 md:w-14 md:h-14 rounded-md bg-black/5 flex items-center justify-center ${feature.color} mb-1.5 md:mb-6 border border-black/5 group-hover:bg-brand-orange group-hover:text-white transition-all duration-500 shrink-0`}>
-                                        <feature.icon size={10} className="md:w-6 md:h-6" />
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="group cursor-default p-4 md:p-10 glass-card rounded-2xl md:rounded-[40px] flex flex-col min-h-[140px] md:min-h-[280px]"
+                                >
+                                    <div className={`w-10 h-10 md:w-20 md:h-20 rounded-xl bg-black/5 flex items-center justify-center ${feature.color} mb-3 md:mb-8 border border-black/5 group-hover:bg-brand-orange group-hover:text-white transition-all duration-500 shrink-0`}>
+                                        <feature.icon size={20} className="md:w-10 md:h-10" />
                                     </div>
-                                    <h4 className="text-slate-900 font-serif text-[10px] md:text-xl mb-0.5 md:mb-2 tracking-tight leading-none h-[1em]">{feature.title}</h4>
-                                    <p className="text-slate-800 text-[7.5px] md:text-sm font-semibold leading-tight mt-auto">{feature.desc}</p>
-                                </div>
+                                    <h4 className="text-slate-900 font-serif text-sm md:text-2xl mb-1.5 md:mb-4 tracking-tight leading-none italic">{feature.title}</h4>
+                                    <p className="text-slate-800 font-serif text-[10px] md:text-lg font-medium leading-[1.3] mt-auto opacity-90">{feature.desc}</p>
+                                </motion.div>
                             ))}
                         </div>
                     </motion.div>
