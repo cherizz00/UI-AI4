@@ -18,16 +18,17 @@ const tickers = [
     { label: "FII FLOW", val: "-₹450Cr" }
 ];
 
-const SparklineGraph = ({ type }) => {
+const SparklineGraph = React.memo(({ type }) => {
     const isBullish = type === 'BULLISH';
     const isBearish = type === 'BEARISH';
     const color = isBullish ? '#22c55e' : isBearish ? '#ef4444' : '#94a3b8';
 
-    const pathData = isBullish
+    const pathData = useMemo(() => isBullish
         ? "M2 22 L8 18 L14 20 L20 12 L26 15 L32 8 L38 10 L44 4 L50 2"
         : isBearish
             ? "M2 5 L8 8 L14 6 L20 15 L26 12 L32 20 L38 18 L44 24 L50 26"
-            : "M2 14 L8 16 L14 13 L20 15 L26 14 L32 16 L38 13 L44 15 L50 14";
+            : "M2 14 L8 16 L14 13 L20 15 L26 14 L32 16 L38 13 L44 15 L50 14"
+        , [type]);
 
     return (
         <div className="w-8 md:w-16 h-4 md:h-8 flex items-center justify-center scale-75 md:scale-100 origin-right">
@@ -38,12 +39,46 @@ const SparklineGraph = ({ type }) => {
                         <stop offset="100%" stopColor={color} stopOpacity="0" />
                     </linearGradient>
                 </defs>
-                <path d={pathData} stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d={`${pathData} L 52 28 L 0 28 Z`} fill={`url(#grad-${type})`} stroke="none" />
+                <path d={pathData} stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         </div>
     );
-};
+});
+
+const SignalItem = React.memo(({ signal }) => (
+    <motion.div
+        layout
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}
+        className="p-2.5 md:p-6 rounded-xl md:rounded-3xl bg-white/40 border border-black/5 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
+    >
+        <div className="flex items-center gap-3 md:gap-6 text-left">
+            <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
+                signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
+                }`}>
+                {signal.type === 'BULLISH' ? <ArrowUpRight size={12} md:size={20} /> :
+                    signal.type === 'BEARISH' ? <ArrowDownRight size={12} md:size={20} /> :
+                        <Activity size={12} md:size={20} />}
+            </div>
+            <div>
+                <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>
+                <p className="text-[5.5px] md:text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wide leading-none">{signal.signal}</p>
+            </div>
+        </div>
+        <div className="text-right flex items-center gap-3 md:gap-8">
+            <div className="flex flex-col items-end">
+                <span className={`text-[8px] md:text-[12px] font-bold mono-data leading-none ${signal.yield.startsWith('+') ? 'text-brand-orange' : 'text-black'}`}>
+                    {signal.yield}
+                </span>
+                <span className="text-[5px] md:text-[9px] text-slate-500 font-bold mono-data leading-none mt-0.5">{signal.timestamp}</span>
+            </div>
+            <div className="flex">
+                <SparklineGraph type={signal.type} />
+            </div>
+        </div>
+    </motion.div>
+));
 
 const TalentIntelligenceFeed = () => {
     const [signals, setSignals] = useState(mockSignals);
@@ -125,39 +160,7 @@ const TalentIntelligenceFeed = () => {
                             <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 max-h-[350px] md:max-h-[600px] overflow-hidden">
                                 <AnimatePresence mode="popLayout">
                                     {signals.slice(0, 5).map((signal) => (
-                                        <motion.div
-                                            key={signal.id}
-                                            layout
-                                            initial={{ opacity: 0, scale: 0.95 }}
-                                            animate={{ opacity: 1, scale: 1 }}
-                                            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                            className="p-2.5 md:p-6 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
-                                        >
-                                            <div className="flex items-center gap-3 md:gap-6 text-left">
-                                                <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
-                                                    signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
-                                                    }`}>
-                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={12} md:size={20} /> :
-                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={12} md:size={20} /> :
-                                                            <Activity size={12} md:size={20} />}
-                                                </div>
-                                                <div>
-                                                    <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>
-                                                    <p className="text-[5.5px] md:text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wide leading-none">{signal.signal}</p>
-                                                </div>
-                                            </div>
-                                            <div className="text-right flex items-center gap-3 md:gap-8">
-                                                <div className="flex flex-col items-end">
-                                                    <span className={`text-[8px] md:text-[12px] font-bold mono-data leading-none ${signal.yield.startsWith('+') ? 'text-brand-orange' : 'text-black'}`}>
-                                                        {signal.yield}
-                                                    </span>
-                                                    <span className="text-[5px] md:text-[9px] text-slate-500 font-bold mono-data leading-none mt-0.5">{signal.timestamp}</span>
-                                                </div>
-                                                <div className="flex">
-                                                    <SparklineGraph type={signal.type} />
-                                                </div>
-                                            </div>
-                                        </motion.div>
+                                        <SignalItem key={signal.id} signal={signal} />
                                     ))}
                                 </AnimatePresence>
                             </div>

@@ -105,12 +105,17 @@ const TalentBento = () => {
                                     `,
                                 }}
                             />
+                            {/* Added image with loading and decoding attributes */}
+                            <img src={talentNetwork} alt="Talent Network" className="absolute inset-0 w-full h-full object-cover rounded-[12px] md:rounded-[56px] opacity-90 group-hover:scale-105 transition-transform duration-700 -z-10" loading="lazy" decoding="async" />
+
 
                             <div className="relative z-10 flex justify-between items-start">
                                 <div className={`w-7 h-7 md:w-16 md:h-16 rounded-lg bg-black/5 flex items-center justify-center ${item.color} group-hover:bg-brand-orange group-hover:text-white transition-all duration-500`}>
                                     <item.icon size={14} className="md:w-6 md:h-6" />
                                 </div>
                                 <div className="hidden sm:block opacity-0 group-hover:opacity-100 transition-opacity">
+                                    {/* Added image with loading and decoding attributes */}
+                                    <img src={algoStrategy} alt="Algo Strategy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90" loading="lazy" decoding="async" />
                                     <Zap size={22} className="text-brand-orange" />
                                 </div>
                             </div>

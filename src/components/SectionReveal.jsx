@@ -36,8 +36,9 @@ const SectionReveal = ({ children, type = 'slide-up', delay = 0 }) => {
         <motion.div
             initial={activeVariant.initial}
             whileInView={activeVariant.animate}
-            viewport={{ once: true, margin: "-10%" }}
+            viewport={{ once: true, margin: "-5%" }}
             transition={activeVariant.transition}
+            style={{ willChange: 'transform, opacity' }}
         >
             {children}
         </motion.div>

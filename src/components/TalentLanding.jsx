@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import TalentNavbar from './TalentNavbar';
 import TalentHero from './TalentHero';
-import TalentFeatures from './TalentFeatures';
-import TalentBento from './TalentBento';
-import TalentAgent from './TalentAgent';
-import TalentIntelligenceFeed from './TalentIntelligenceFeed';
-import TalentAbout from './TalentAbout';
-import TalentSectionTalent from './TalentSectionTalent';
-import TalentHiring from './TalentHiring';
-import TalentRoles from './TalentRoles';
-import TalentTestimonials from './TalentTestimonials';
-import TalentPricing from './TalentPricing';
-import TalentCTA from './TalentCTA';
-import TalentFAQ from './TalentFAQ';
-import TalentFooter from './TalentFooter';
-import TalentWhatWeDo from './TalentWhatWeDo';
 import SectionReveal from './SectionReveal';
+
+// Lazy load below-the-fold components
+const TalentFeatures = lazy(() => import('./TalentFeatures'));
+const TalentBento = lazy(() => import('./TalentBento'));
+const TalentAgent = lazy(() => import('./TalentAgent'));
+const TalentIntelligenceFeed = lazy(() => import('./TalentIntelligenceFeed'));
+const TalentAbout = lazy(() => import('./TalentAbout'));
+const TalentSectionTalent = lazy(() => import('./TalentSectionTalent'));
+const TalentHiring = lazy(() => import('./TalentHiring'));
+const TalentRoles = lazy(() => import('./TalentRoles'));
+const TalentTestimonials = lazy(() => import('./TalentTestimonials'));
+const TalentPricing = lazy(() => import('./TalentPricing'));
+const TalentCTA = lazy(() => import('./TalentCTA'));
+const TalentFAQ = lazy(() => import('./TalentFAQ'));
+const TalentFooter = lazy(() => import('./TalentFooter'));
+const TalentWhatWeDo = lazy(() => import('./TalentWhatWeDo'));
+
+const LoadingFallback = () => <div className="w-full h-24 animate-pulse bg-black/5 rounded-3xl" />;
 
 const TalentLanding = ({ setView }) => {
     return (
@@ -27,67 +31,71 @@ const TalentLanding = ({ setView }) => {
                     <TalentHero />
                 </SectionReveal>
 
-                <SectionReveal type="flip">
-                    <TalentIntelligenceFeed />
-                </SectionReveal>
+                <Suspense fallback={<LoadingFallback />}>
+                    <SectionReveal type="flip">
+                        <TalentIntelligenceFeed />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-up">
-                    <TalentWhatWeDo />
-                </SectionReveal>
+                    <SectionReveal type="slide-up">
+                        <TalentWhatWeDo />
+                    </SectionReveal>
 
 
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
-                <SectionReveal type="slide-left">
-                    <TalentFeatures />
-                </SectionReveal>
+                    <SectionReveal type="slide-left">
+                        <TalentFeatures />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-left">
-                    <TalentAbout />
-                </SectionReveal>
+                    <SectionReveal type="slide-left">
+                        <TalentAbout />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-up">
-                    <TalentAgent />
-                </SectionReveal>
+                    <SectionReveal type="slide-up">
+                        <TalentAgent />
+                    </SectionReveal>
 
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
-                <SectionReveal type="slide-right">
-                    <TalentBento />
-                </SectionReveal>
+                    <SectionReveal type="slide-right">
+                        <TalentBento />
+                    </SectionReveal>
 
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-brand-orange/20 to-transparent" />
 
-                <SectionReveal type="flip">
-                    <TalentSectionTalent />
-                </SectionReveal>
+                    <SectionReveal type="flip">
+                        <TalentSectionTalent />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-left">
-                    <TalentHiring />
-                </SectionReveal>
+                    <SectionReveal type="slide-left">
+                        <TalentHiring />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-right">
-                    <TalentRoles />
-                </SectionReveal>
+                    <SectionReveal type="slide-right">
+                        <TalentRoles />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-left">
-                    <TalentTestimonials />
-                </SectionReveal>
+                    <SectionReveal type="slide-left">
+                        <TalentTestimonials />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-right">
-                    <TalentPricing />
-                </SectionReveal>
+                    <SectionReveal type="slide-right">
+                        <TalentPricing />
+                    </SectionReveal>
 
-                <SectionReveal type="flip">
-                    <TalentFAQ />
-                </SectionReveal>
+                    <SectionReveal type="flip">
+                        <TalentFAQ />
+                    </SectionReveal>
 
-                <SectionReveal type="slide-up">
-                    <TalentCTA />
-                </SectionReveal>
+                    <SectionReveal type="slide-up">
+                        <TalentCTA />
+                    </SectionReveal>
+                </Suspense>
             </main>
 
-            <TalentFooter />
+            <Suspense fallback={null}>
+                <TalentFooter />
+            </Suspense>
         </div>
     );
 };
