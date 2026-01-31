@@ -19,7 +19,7 @@ const TalentFAQ = lazy(() => import('./TalentFAQ'));
 const TalentFooter = lazy(() => import('./TalentFooter'));
 const TalentWhatWeDo = lazy(() => import('./TalentWhatWeDo'));
 
-const LoadingFallback = () => <div className="w-full h-24 animate-pulse bg-black/5 rounded-3xl" />;
+const LoadingFallback = () => <div className="w-full h-0" />;
 
 const TalentLanding = ({ setView }) => {
     return (
