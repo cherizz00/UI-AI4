@@ -66,7 +66,7 @@ const TalentIntelligenceFeed = () => {
                 });
                 return nextSignals;
             });
-        }, 3000);
+        }, 4500);
         return () => clearInterval(interval);
     }, []);
 
@@ -124,24 +124,24 @@ const TalentIntelligenceFeed = () => {
                                 </div>
                             </div>
 
-                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 max-h-[350px] md:max-h-[600px] overflow-hidden">
+                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 h-[360px] md:h-[600px] overflow-hidden relative">
                                 <AnimatePresence mode="popLayout">
                                     {signals.slice(0, 5).map((signal) => (
                                         <motion.div
                                             key={signal.id}
                                             layout
-                                            initial={{ opacity: 0, scale: 0.95 }}
-                                            animate={{ opacity: 1, scale: 1 }}
+                                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                            animate={{ opacity: 1, scale: 1, y: 0 }}
                                             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                            className="p-2.5 md:p-6 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all"
+                                            className="p-2.5 md:p-6 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all w-full"
                                         >
                                             <div className="flex items-center gap-3 md:gap-6 text-left">
                                                 <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
                                                     signal.type === 'BEARISH' ? 'bg-black/10 text-black' : 'bg-slate-500/10 text-slate-500'
                                                     }`}>
-                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={12} md:size={20} /> :
-                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={12} md:size={20} /> :
-                                                            <Activity size={12} md:size={20} />}
+                                                    {signal.type === 'BULLISH' ? <ArrowUpRight size={12} className="md:w-5 md:h-5" /> :
+                                                        signal.type === 'BEARISH' ? <ArrowDownRight size={12} className="md:w-5 md:h-5" /> :
+                                                            <Activity size={12} className="md:w-5 md:h-5" />}
                                                 </div>
                                                 <div>
                                                     <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>

@@ -83,7 +83,7 @@ const TalentNavbar = ({ setView }) => {
                             initial={{ opacity: 0, scale: 0.9, y: -20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                            className="xl:hidden absolute top-full left-3 right-3 mt-6"
+                            className="xl:hidden absolute top-full left-3 right-3 mt-6 z-[60]"
                         >
                             <div className="glass-card p-6 md:p-10 rounded-3xl space-y-8 bg-white/60 backdrop-blur-[40px] shadow-3xl">
                                 {navLinks.map((link) => (

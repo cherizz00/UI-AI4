@@ -29,10 +29,13 @@
 
     html {
         scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
     }
 
     ::-webkit-scrollbar {
         width: 8px;
+        height: 8px;
     }
 
     ::-webkit-scrollbar-track {
@@ -418,6 +421,8 @@
         -moz-osx-font-smoothing: grayscale;
         scroll-behavior: smooth;
         overflow-x: hidden;
+        -webkit-tap-highlight-color: transparent;
+        overscroll-behavior-y: none;
     }
 
     ::selection {
@@ -427,6 +432,15 @@
 
     ::-webkit-scrollbar {
         width: 6px;
+        height: 6px;
+        display: none;
+        /* Hide scrollbar for cleaner mobile look, show only on interaction/hover if needed */
+    }
+
+    @media (hover: hover) {
+        ::-webkit-scrollbar {
+            display: block;
+        }
     }
 
     ::-webkit-scrollbar-track {

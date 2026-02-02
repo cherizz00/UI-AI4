@@ -5,8 +5,15 @@ const pricingPans = [
     {
         name: "Daily Intelligence",
         price: "₹999",
-        description: "The essential pre-market briefing used by India's top retail quants.",
-        features: ["Daily 8:00 AM Execution Brief", "NIFTY & BANK NIFTY Levels", "Institutional Flow Decoding", "Volatility & Risk Alerts", "No Fluff, Just Alpha"],
+        originalPrice: "₹1,999",
+        description: "A macro-focused morning briefing designed for traders who want context, not chatter.",
+        features: [
+            "Pre-Market Fundamental & Sentiment Brief (8:00 AM IST)",
+            "Index Levels Backed by Market Structure",
+            "Market Flow & Risk Sentiment Analysis",
+            "Global Economic Triggers & Policy Watch",
+            "Only What Matters for Today’s Session"
+        ],
         icon: Zap,
         highlight: true
     },
@@ -68,9 +75,14 @@ const TalentPricing = () => {
                             </div>
 
                             <h3 className="text-[10px] md:text-2xl font-serif text-slate-900 mb-0.5 md:mb-3 tracking-tight leading-none uppercase">{plan.name}</h3>
-                            <div className="flex items-baseline gap-0.5 mb-1 md:mb-4">
-                                <span className="text-sm md:text-4xl font-bold text-slate-900 tracking-tighter leading-none">{plan.price}</span>
-                                {plan.price !== "Custom" && <span className="text-slate-500 text-[6px] md:text-sm font-bold uppercase tracking-widest ml-1">/ yr</span>}
+                            <div className="flex flex-col items-start mb-1 md:mb-4">
+                                {plan.originalPrice && (
+                                    <span className="text-[8px] md:text-lg font-bold text-slate-400 line-through decoration-slate-400/50 decoration-2">{plan.originalPrice}</span>
+                                )}
+                                <div className="flex items-baseline gap-0.5">
+                                    <span className="text-sm md:text-4xl font-bold text-slate-900 tracking-tighter leading-none">{plan.price}</span>
+                                    {plan.price !== "Custom" && <span className="text-slate-500 text-[6px] md:text-sm font-bold uppercase tracking-widest ml-1">/ year</span>}
+                                </div>
                             </div>
                             <p className="text-slate-600 text-[8px] md:text-sm font-medium mb-3 md:mb-6 leading-tight opacity-80">
                                 {plan.description}
