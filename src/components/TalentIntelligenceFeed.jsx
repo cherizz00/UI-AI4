@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, ArrowUpRight, ArrowDownRight, Zap, Target, BarChart3, TrendingUp, Cpu } from 'lucide-react';
 
 const mockSignals = [
-    { id: 1, type: 'BULLISH', asset: 'NVDA', signal: 'Volume Breakout', strength: 'High', timestamp: '14:23:01', yield: '+2.4%' },
-    { id: 2, type: 'BEARISH', asset: 'AAPL', signal: 'MACD Crossover', strength: 'Medium', timestamp: '14:22:45', yield: '-1.2%' },
-    { id: 3, type: 'NEUTRAL', asset: 'MSFT', signal: 'Consolidation', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
-    { id: 4, type: 'BULLISH', asset: 'TSM', signal: 'RSI Divergence', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
-    { id: 5, type: 'BULLISH', asset: 'GOOGL', signal: 'Support Bounce', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
+    { id: 1, type: 'BEARISH', asset: 'RELIANCE', signal: 'Liquidity Shock (Order Flow Imbalance)', strength: 'High', timestamp: '14:23:01', yield: '-2.4%' },
+    { id: 2, type: 'BULLISH', asset: 'HDFCBANK', signal: 'Momentum Drift Shift (Brownian Drift Change)', strength: 'Medium', timestamp: '14:22:45', yield: '+1.2%' },
+    { id: 3, type: 'NEUTRAL', asset: 'TCS', signal: 'Volatility Regime Shift (SABR Skew Expansion)', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
+    { id: 4, type: 'BULLISH', asset: 'INFY', signal: 'Volatility Compression (Variance Contraction)', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
+    { id: 5, type: 'BULLISH', asset: 'ICICIBANK', signal: 'Mean Reversion Trigger (Stat Arb Signal)', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
 ];
 
 const tickers = [

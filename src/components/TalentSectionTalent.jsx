@@ -4,8 +4,8 @@ import { UserCheck, Zap, Target } from 'lucide-react';
 import AlgoStrategy from '../assets/algo-strategy.png';
 
 const items = [
-    { title: "Direct Partnership", desc: "Engage with funds looking for high-capacity strategies.", icon: UserCheck },
-    { title: "Capital Injection", desc: "Scale from proof-of-concept to institutional mandate.", icon: Zap }
+    { title: "Direct System Integration", desc: "Launch your strategies on low-latency, high-throughput trading architecture.", icon: Zap },
+    { title: "From Lab to Live", desc: "Transform experimental models into real-world, production systems.", icon: Target }
 ];
 
 const TalentSectionTalent = () => {
@@ -21,10 +21,10 @@ const TalentSectionTalent = () => {
                         >
                             <h2 className="text-fluid-h2 font-serif tracking-tight mb-2 md:mb-8 leading-tight text-left text-slate-900">
                                 For <br />
-                                <span className="text-fade">Quant Artisans.</span>
+                                <span className="text-fade">Quant Artisans</span>
                             </h2>
-                            <p className="text-slate-800 text-[6px] md:text-base font-semibold mb-3 md:mb-10 text-left leading-tight px-1 italic">
-                                Connect with the infrastructure that empowers your models at institutional scale.
+                            <p className="text-slate-800 text-[8px] md:text-base font-semibold mb-3 md:mb-10 text-left leading-tight px-1 italic">
+                                Plug into next-gen infrastructure designed to run your models at extreme scale.
                             </p>
 
                             <div className="space-y-1 md:space-y-6">

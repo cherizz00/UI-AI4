@@ -97,7 +97,7 @@ const TypingWord = () => {
 
 const TalentHero = () => {
     return (
-        <section className="relative min-h-[70vh] lg:min-h-[90vh] bg-transparent text-black pt-24 md:pt-36 lg:pt-44 pb-8 overflow-hidden flex flex-col items-center justify-start text-center section-py">
+        <section className="relative min-h-[70vh] lg:min-h-[90vh] bg-transparent text-black pt-20 md:pt-32 lg:pt-40 pb-8 overflow-hidden flex flex-col items-center justify-start text-center">
 
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-10">
                 {dataPoints.map(p => (
@@ -192,6 +192,9 @@ const TalentHero = () => {
                 transition={{ duration: 1 }}
                 className="container border-t border-black/5 pt-8 md:pt-14 pb-4 md:pb-10 relative px-0"
             >
+                <p className="text-center text-slate-500 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-8 md:mb-12">
+                    Trusted by technologists working at the world’s most advanced companies
+                </p>
                 <div className="flex flex-col gap-4 md:gap-8">
                     {/* First Line: Left to Right */}
                     <div

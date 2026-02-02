@@ -3,7 +3,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 const TalentBackground = ({ children }) => {
     return (
-        <div className="relative min-h-screen bg-white overflow-hidden bg-grid">
+        <div className="relative min-h-[100dvh] bg-white overflow-hidden bg-grid">
 
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-noise" />
 
@@ -13,7 +13,7 @@ const TalentBackground = ({ children }) => {
             <div className="absolute top-[30%] left-[20%] w-[30%] md:w-[50%] h-[20%] md:h-[50%] bg-indigo-50/30 blur-[40px] md:blur-[80px] rounded-full pointer-events-none mix-blend-multiply" />
 
 
-            <div className="relative z-10 w-full min-h-screen">
+            <div className="relative z-10 w-full min-h-[100dvh]">
                 {children}
             </div>
         </div>

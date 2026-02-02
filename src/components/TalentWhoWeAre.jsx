@@ -55,7 +55,15 @@ const networkNodes = [
 
 const AlphaTree = () => {
     const [isHolding, setIsHolding] = React.useState(false);
+    const [isMobile, setIsMobile] = React.useState(false);
     const holdTimer = React.useRef(null);
+
+    React.useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const startHold = () => {
         holdTimer.current = setTimeout(() => setIsHolding(true), 200);
@@ -67,8 +75,8 @@ const AlphaTree = () => {
     };
 
     return (
-        <div className="relative py-32 md:py-48 overflow-visible flex flex-col items-center justify-center min-h-[700px] border-t border-slate-200">
-            <div className="text-center mb-32 relative z-20">
+        <div className="relative pt-20 pb-48 md:pt-32 md:pb-96 overflow-visible flex flex-col items-center justify-center min-h-[700px] border-t border-slate-200">
+            <div className="text-center mb-40 md:mb-80 relative z-20 transition-all duration-500">
                 <p className="text-brand-orange uppercase tracking-[0.4em] text-[10px] font-bold mb-4">The Talent Network</p>
                 <h3 className="text-4xl font-jakarta font-bold mb-8">Structural Intelligence Hub</h3>
                 <motion.div
@@ -100,8 +108,9 @@ const AlphaTree = () => {
 
                 {/* Animated Lines and Nodes */}
                 {networkNodes.map((node, i) => {
-                    // Increased radius to avoid overlap with central hub and instructional badge
-                    const radius = isHolding ? 240 : 0;
+                    // Responsive radius: 140px for mobile, 260px for desktop
+                    // Increased desktop radius to ensure no overlap
+                    const radius = isHolding ? (isMobile ? 140 : 260) : 0;
                     const x = Math.cos((node.angle * Math.PI) / 180) * radius;
                     const y = Math.sin((node.angle * Math.PI) / 180) * radius;
 
@@ -133,14 +142,14 @@ const AlphaTree = () => {
                                     stiffness: 120,
                                     delay: i * 0.04
                                 }}
-                                className="absolute w-20 h-20 rounded-full border-2 border-white bg-white shadow-premium overflow-visible pointer-events-auto group"
+                                className="absolute w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-white bg-white shadow-premium overflow-visible pointer-events-auto group z-40"
                             >
                                 <div className="w-full h-full rounded-full overflow-hidden border border-slate-100">
                                     <img src={node.image} alt={node.role} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                                 </div>
 
                                 {/* Refined External Labels - Fixed Overlap */}
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                                     <div className="bg-slate-900 text-white text-[9px] font-bold uppercase tracking-widest py-1.5 px-3 rounded shadow-xl border border-white/10">
                                         {node.role}
                                     </div>
@@ -169,7 +178,7 @@ const AlphaTree = () => {
 
 const TalentWhoWeAre = ({ setView }) => {
     return (
-        <div className="min-h-screen bg-[#F8F9FA] text-slate-900 font-sans selection:bg-brand-orange/20">
+        <div className="min-h-[100dvh] bg-[#F8F9FA] text-slate-900 font-sans selection:bg-brand-orange/20">
             {/* Minimalist Header */}
             <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4">
                 <div className="container max-w-7xl mx-auto px-6 flex justify-between items-center">

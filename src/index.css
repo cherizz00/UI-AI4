@@ -178,6 +178,8 @@
         inset 0 0 0 1px rgba(255, 255, 255, 0.3);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, backdrop-filter;
+    transform: translateZ(0);
+    /* Hardware acceleration hint */
 
     @media (hover: hover) {
         &:hover {
@@ -211,7 +213,6 @@
         0 8px 32px 0 rgba(0, 0, 0, 0.1),
         inset 0 0 0 1px rgba(255, 255, 255, 0.15),
         0 0 0 1px rgba(0, 0, 0, 0.03);
-    will-change: transform, backdrop-filter;
 }
 
 @utility text-fluid-h1 {
@@ -237,8 +238,8 @@
 }
 
 @utility section-py {
-    padding-top: clamp(4rem, 10vh, 10rem);
-    padding-bottom: clamp(4rem, 10vh, 10rem);
+    padding-top: clamp(2rem, 5vh, 5rem);
+    padding-bottom: clamp(2rem, 5vh, 5rem);
 }
 
 @utility text-fade {
@@ -368,6 +369,7 @@
         0 8px 32px 0 rgba(0, 0, 0, 0.06),
         inset 0 0 0 1px rgba(255, 255, 255, 0.1);
     will-change: backdrop-filter;
+    transform: translateZ(0);
 }
 
 

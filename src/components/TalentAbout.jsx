@@ -62,7 +62,7 @@ const TalentAbout = () => {
                                         <feature.icon size={20} className="md:w-10 md:h-10" />
                                     </div>
                                     <h4 className="text-slate-900 font-serif text-sm md:text-2xl mb-1.5 md:mb-4 tracking-tight leading-none italic">{feature.title}</h4>
-                                    <p className="text-slate-800 font-serif text-[10px] md:text-lg font-medium leading-[1.3] mt-auto opacity-90">{feature.desc}</p>
+                                    <p className="text-slate-800 font-serif text-xs md:text-xl font-medium leading-[1.3] mt-auto opacity-90">{feature.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
