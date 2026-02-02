@@ -5,7 +5,7 @@ import TalentTestimonials from './TalentTestimonials';
 
 const team = [
     {
-        name: "Alex Rivest",
+    name: "CHNADRASEKHAR S.",
         role: "Founder & CEO",
         bio: "Visionary strategist bridging the gap between engineered intelligence and capital allocation. Former global macro director.",
         image: "/team/founder.png",
