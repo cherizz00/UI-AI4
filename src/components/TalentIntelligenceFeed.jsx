@@ -124,7 +124,7 @@ const TalentIntelligenceFeed = () => {
                                 </div>
                             </div>
 
-                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 h-[360px] md:h-[600px] overflow-hidden relative">
+                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 h-[360px] md:h-[600px] overflow-hidden relative" style={{ transform: 'translateZ(0)' }}>
                                 <AnimatePresence mode="popLayout">
                                     {signals.slice(0, 5).map((signal) => (
                                         <motion.div

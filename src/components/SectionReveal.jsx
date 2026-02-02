@@ -38,6 +38,12 @@ const SectionReveal = ({ children, type = 'slide-up', delay = 0 }) => {
             whileInView={activeVariant.animate}
             viewport={{ once: true, margin: "-10%" }}
             transition={activeVariant.transition}
+            style={{
+                willChange: "transform, opacity",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                transform: "translateZ(0)"
+            }}
         >
             {children}
         </motion.div>

@@ -204,7 +204,7 @@ const TalentHero = () => {
                             WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
                         }}
                     >
-                        <div className="animate-marquee flex items-center gap-16 md:gap-32">
+                        <div className="animate-marquee flex items-center gap-16 md:gap-32" style={{ transform: 'translate3d(0,0,0)' }}>
                             {[...logos, ...logos].map((logo, idx) => (
                                 <div key={idx} className="flex items-center justify-center shrink-0 group/logo cursor-default">
                                     <div className="h-5 md:h-7 w-auto flex items-center justify-center transition-all duration-500 hover:scale-110">
