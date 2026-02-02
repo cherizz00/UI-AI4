@@ -24,38 +24,38 @@ jobs:
       - name: Build frontend
         run: npm run build
 
-      # - name: Prepare release directory on VPS
-      #   uses: appleboy/ssh-action@v1.0.3
-      #   with:
-      #     host: ${{ secrets.VPS_HOST }}
-      #     username: ${{ secrets.VPS_USER }}
-      #     key: ${{ secrets.VPS_SSH_KEY }}
-      #     port: 22
-      #     script: |
-      #       set -e
-      #       rm -rf /var/www/html_new
-      #       mkdir -p /var/www/html_new
-      #
-      # - name: Upload build files
-      #   uses: appleboy/scp-action@v0.1.7
-      #   with:
-      #     host: ${{ secrets.VPS_HOST }}
-      #     username: ${{ secrets.VPS_USER }}
-      #     key: ${{ secrets.VPS_SSH_KEY }}
-      #     port: 22
-      #     source: "dist/"
-      #     target: "/var/www/html_new"
-      #     strip_components: 1
-      #
-      # - name: Activate deployment
-      #   uses: appleboy/ssh-action@v1.0.3
-      #   with:
-      #     host: ${{ secrets.VPS_HOST }}
-      #     username: ${{ secrets.VPS_USER }}
-      #     key: ${{ secrets.VPS_SSH_KEY }}
-      #     port: 22
-      #     script: |
-      #       set -e
-      #       rm -rf /var/www/html_old || true
-      #       mv /var/www/html /var/www/html_old
-      #       mv /var/www/html_new /var/www/html
+      - name: Prepare release directory on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            set -e
+            rm -rf /var/www/html_new
+            mkdir -p /var/www/html_new
+
+      - name: Upload build files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          source: "dist/"
+          target: "/var/www/html_new"
+          strip_components: 1
+
+      - name: Activate deployment
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            set -e
+            rm -rf /var/www/html_old || true
+            mv /var/www/html /var/www/html_old
+            mv /var/www/html_new /var/www/html
