@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, BookOpen, Rocket, Heart, ArrowLeft, Mail, Linkedin, Globe, Shield, Zap } from 'lucide-react';
+import TalentTestimonials from './TalentTestimonials';
 
 const team = [
     {
@@ -296,6 +297,8 @@ const TalentWhoWeAre = ({ setView }) => {
 
                     {/* Alpha Tree Section */}
                     <AlphaTree />
+
+                    <TalentTestimonials />
 
                     {/* Institutional Note */}
                     <div className="mt-20 border-t border-slate-200 pt-24">

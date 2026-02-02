@@ -112,7 +112,7 @@ const TalentIntelligenceFeed = () => {
                     </div>
 
                     <div className="w-full lg:w-7/12">
-                        <div className="glass-card rounded-[24px] md:rounded-[56px] overflow-hidden relative shadow-3xl">
+                        <div className="glass-card rounded-[24px] md:rounded-[56px] overflow-hidden relative shadow-3xl border border-brand-orange/20">
                             <div className="p-3 md:p-8 border-b border-black/5 flex justify-between items-center bg-black/[0.01]">
                                 <div className="flex items-center gap-2 md:gap-4">
                                     <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 bg-black rounded-full animate-pulse shadow-[0_0_8px_rgba(0,0,0,0.3)]" />
@@ -124,7 +124,7 @@ const TalentIntelligenceFeed = () => {
                                 </div>
                             </div>
 
-                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 h-[360px] md:h-[600px] overflow-hidden relative" style={{ transform: 'translateZ(0)' }}>
+                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 h-[380px] md:h-[520px] overflow-hidden relative" style={{ transform: 'translateZ(0)' }}>
                                 <AnimatePresence mode="popLayout">
                                     {signals.slice(0, 5).map((signal) => (
                                         <motion.div
@@ -133,7 +133,7 @@ const TalentIntelligenceFeed = () => {
                                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                             animate={{ opacity: 1, scale: 1, y: 0 }}
                                             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                            className="p-2.5 md:p-6 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all w-full"
+                                            className="p-2.5 md:p-5 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all w-full"
                                         >
                                             <div className="flex items-center gap-3 md:gap-6 text-left">
                                                 <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :

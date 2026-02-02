@@ -7,9 +7,7 @@ import TalentAgent from './TalentAgent';
 import TalentIntelligenceFeed from './TalentIntelligenceFeed';
 import TalentAbout from './TalentAbout';
 import TalentSectionTalent from './TalentSectionTalent';
-import TalentHiring from './TalentHiring';
 import TalentRoles from './TalentRoles';
-import TalentTestimonials from './TalentTestimonials';
 import TalentPricing from './TalentPricing';
 import TalentCTA from './TalentCTA';
 import TalentFAQ from './TalentFAQ';
@@ -62,17 +60,13 @@ const TalentLanding = ({ setView }) => {
                     <TalentSectionTalent />
                 </SectionReveal>
 
-                <SectionReveal type="slide-left">
-                    <TalentHiring />
-                </SectionReveal>
+
 
                 <SectionReveal type="slide-right">
                     <TalentRoles />
                 </SectionReveal>
 
-                <SectionReveal type="slide-left">
-                    <TalentTestimonials />
-                </SectionReveal>
+
 
                 <SectionReveal type="slide-right">
                     <TalentPricing />
