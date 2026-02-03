@@ -53,8 +53,18 @@ const TalentRoles = () => {
                 </motion.div>
 
                 <div className="grid grid-cols-3 gap-1 md:gap-8 relative pt-2">
-
+                    {/* Connecting Line */}
                     <div className="absolute top-[20px] md:top-[50px] left-0 w-full h-[0.5px] md:h-0.5 bg-gradient-to-r from-transparent via-black/10 to-transparent -z-10" />
+
+                    {/* NOW Indicator Dot on Line */}
+                    <div className="absolute top-[20px] md:top-[50px] left-[33.33%] -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center">
+                        <motion.div
+                            animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                            className="w-1.5 h-1.5 md:w-3 md:h-3 bg-brand-orange rounded-full border-2 border-white shadow-[0_0_10px_rgba(255,159,67,0.5)]"
+                        />
+                        <span className="absolute -top-3 md:-top-6 text-[4px] md:text-[8px] font-bold text-brand-orange uppercase tracking-wider bg-white/50 backdrop-blur-[2px] px-1 rounded-sm">NOW</span>
+                    </div>
 
                     {roadmapSteps.map((step, i) => (
                         <motion.div
@@ -66,18 +76,13 @@ const TalentRoles = () => {
                             className="relative group"
                         >
                             <div className="flex flex-col items-center text-center">
-
+                                {/* Transitioned from NOW badge on icon to line indicator */}
                                 <div className={`w-9 h-9 md:w-24 md:h-24 rounded-lg md:rounded-2xl ${i === 0 ? 'glass-card border-brand-orange/30 shadow-[0_0_15px_rgba(255,159,67,0.15)]' : 'glass-card'} flex items-center justify-center mb-2 md:mb-8 relative z-10 transition-transform duration-500`}>
                                     <step.icon size={15} className={i === 0 ? 'text-brand-orange md:w-8 md:h-8' : 'text-slate-700 md:w-8 md:h-8'} />
-                                    {i === 0 && (
-                                        <div className="absolute -top-1 -right-1 w-3.5 h-3.5 md:w-6 md:h-6 bg-brand-orange rounded-full flex items-center justify-center text-[5px] md:text-[10px] font-bold text-white shadow-lg animate-pulse">
-                                            NOW
-                                        </div>
-                                    )}
                                 </div>
 
 
-                                <div className="glass-card p-2 rounded-lg md:p-10 rounded-xl md:rounded-[40px] w-full min-h-[100px] md:min-h-[320px] flex flex-col items-center hover:bg-white transition-all group-hover:border-brand-orange/30">
+                                <div className="glass-card p-2 rounded-lg md:p-10 rounded-xl md:rounded-[40px] w-full min-h-[100px] md:min-h-320px flex flex-col items-center hover:bg-white transition-all group-hover:border-brand-orange/30">
                                     <span className={`text-[6px] md:text-[12px] font-bold uppercase tracking-wider md:tracking-[0.3em] mb-1 md:mb-6 ${i === 0 ? 'text-brand-orange' : 'text-slate-400'}`}>
                                         {step.phase}
                                     </span>

@@ -5,7 +5,7 @@ import TalentTestimonials from './TalentTestimonials';
 
 const team = [
     {
-    name: "CHNADRASEKHAR S.",
+        name: "CHNADRASEKHAR S.",
         role: "Founder & CEO",
         bio: "Visionary strategist bridging the gap between engineered intelligence and capital allocation. Former global macro director.",
         image: "/team/founder.png",
@@ -93,17 +93,15 @@ const AlphaTree = () => {
             <div className="relative w-40 h-40 flex items-center justify-center">
                 {/* Central Hub Node */}
                 <motion.div
-                    onMouseDown={startHold}
-                    onMouseUp={endHold}
-                    onMouseLeave={endHold}
-                    onTouchStart={startHold}
-                    onTouchEnd={endHold}
+                    onPointerDown={startHold}
+                    onPointerUp={endHold}
+                    onPointerLeave={endHold}
                     whileTap={{ scale: 0.95 }}
-                    className={`relative z-30 w-32 h-32 rounded-full border-4 ${isHolding ? 'border-brand-orange bg-white' : 'border-slate-200 bg-slate-50'} cursor-pointer flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.05)] transition-all duration-700 overflow-hidden`}
+                    className={`relative z-30 w-28 h-28 md:w-32 md:h-32 rounded-full border-4 ${isHolding ? 'border-brand-orange bg-white' : 'border-slate-200 bg-slate-50'} cursor-pointer flex items-center justify-center shadow-[0_0_50px_rgba(0,0,0,0.05)] transition-all duration-700 overflow-hidden touch-none`}
                 >
                     <div className="text-center">
-                        <span className="block text-[10px] font-bold uppercase tracking-tighter text-slate-400 mb-1">Alpha</span>
-                        <span className="block text-2xl font-bold tracking-tighter text-slate-900 leading-none">HUB</span>
+                        <span className="block text-[8px] md:text-[10px] font-bold uppercase tracking-tighter text-slate-400 mb-1">Alpha</span>
+                        <span className="block text-xl md:text-2xl font-bold tracking-tighter text-slate-900 leading-none">HUB</span>
                     </div>
                 </motion.div>
 
@@ -121,12 +119,13 @@ const AlphaTree = () => {
                             <motion.div
                                 initial={{ width: 0 }}
                                 animate={{ width: isHolding ? radius : 0 }}
+                                className="absolute h-[1.5px] bg-gradient-to-r from-brand-orange/40 via-slate-200 to-transparent opacity-50 transition-all duration-700"
                                 style={{
                                     rotate: `${node.angle}deg`,
                                     transformOrigin: 'left center',
-                                    left: '50%'
+                                    left: '50%',
+                                    transform: 'translate3d(0,0,0)'
                                 }}
-                                className="absolute h-[1.5px] bg-gradient-to-r from-brand-orange/40 via-slate-200 to-transparent opacity-50 transition-all duration-700"
                             />
 
                             {/* Network Node */}
@@ -139,11 +138,12 @@ const AlphaTree = () => {
                                 }}
                                 transition={{
                                     type: "spring",
-                                    damping: 20,
-                                    stiffness: 120,
+                                    damping: 25,
+                                    stiffness: 150,
                                     delay: i * 0.04
                                 }}
                                 className="absolute w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-white bg-white shadow-premium overflow-visible pointer-events-auto group z-40"
+                                style={{ transform: 'translate3d(0,0,0)' }}
                             >
                                 <div className="w-full h-full rounded-full overflow-hidden border border-slate-100">
                                     <img src={node.image} alt={node.role} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
@@ -169,7 +169,7 @@ const AlphaTree = () => {
                     <motion.div
                         animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
                         transition={{ duration: 2.5, repeat: Infinity }}
-                        className="absolute w-32 h-32 rounded-full border-2 border-brand-orange/40"
+                        className="absolute w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-brand-orange/40"
                     />
                 )}
             </div>

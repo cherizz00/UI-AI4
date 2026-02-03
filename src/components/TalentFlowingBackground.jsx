@@ -5,40 +5,17 @@ export default function TalentFlowingBackground() {
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
             {/* Primary Orbiting Glow */}
             <motion.div
-                className="absolute w-[500px] h-[500px] rounded-full"
+                className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full"
                 style={{
                     background: 'radial-gradient(circle, rgba(255, 159, 67, 0.08) 0%, rgba(255, 159, 67, 0.01) 50%, rgba(0, 0, 0, 0) 70%)',
                     top: '20%',
                     left: '20%',
-                    transform: 'translateZ(0)',
+                    transform: 'translate3d(0,0,0)',
                     willChange: 'transform',
                 }}
                 animate={{
-                    x: [0, 100, -50, 0],
-                    y: [0, -100, 50, 0],
-                    scale: [1, 1.2, 0.9, 1],
-                }}
-                transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
-                }}
-            />
-
-            {/* Secondary Floating Glow */}
-            <motion.div
-                className="absolute w-[600px] h-[600px] rounded-full"
-                style={{
-                    background: 'radial-gradient(circle, rgba(255, 159, 67, 0.05) 0%, rgba(255, 159, 67, 0.01) 50%, rgba(0, 0, 0, 0) 70%)',
-                    bottom: '10%',
-                    right: '10%',
-                    transform: 'translateZ(0)',
-                    willChange: 'transform',
-                }}
-                animate={{
-                    x: [0, -150, 50, 0],
-                    y: [0, 80, -40, 0],
-                    scale: [1, 1.1, 0.95, 1],
+                    x: [0, 50, -25, 0],
+                    y: [0, -50, 25, 0],
                 }}
                 transition={{
                     duration: 25,
@@ -47,27 +24,28 @@ export default function TalentFlowingBackground() {
                 }}
             />
 
-            {/* Drifting Particles */}
-            {[...Array(5)].map((_, i) => (
+            {/* Drifting Particles - Reduced to 3 for better performance */}
+            {[...Array(3)].map((_, i) => (
                 <motion.div
                     key={i}
-                    className="absolute rounded-full bg-white opacity-20"
+                    className="absolute rounded-full bg-white opacity-10"
                     style={{
-                        width: Math.random() * 4 + 1 + 'px',
-                        height: Math.random() * 4 + 1 + 'px',
-                        top: Math.random() * 100 + '%',
-                        left: Math.random() * 100 + '%',
-                        boxShadow: '0 0 10px rgba(255, 255, 255, 0.5)',
+                        width: '3px',
+                        height: '3px',
+                        top: (20 + i * 25) + '%',
+                        left: (20 + i * 25) + '%',
+                        boxShadow: '0 0 10px rgba(255, 255, 255, 0.3)',
+                        transform: 'translate3d(0,0,0)',
                     }}
                     animate={{
-                        y: [0, -100, 0],
-                        opacity: [0.1, 0.5, 0.1],
+                        y: [0, -40, 0],
+                        opacity: [0.1, 0.3, 0.1],
                     }}
                     transition={{
-                        duration: 10 + Math.random() * 10,
+                        duration: 15 + i * 5,
                         repeat: Infinity,
                         ease: "easeInOut",
-                        delay: Math.random() * 5,
+                        delay: i * 2,
                     }}
                 />
             ))}

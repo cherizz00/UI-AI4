@@ -195,22 +195,20 @@ const TalentHero = () => {
                 <p className="text-center text-slate-500 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.2em] mb-8 md:mb-12">
                     Trusted by technologists working at the world’s most advanced companies
                 </p>
-                <div className="flex flex-col gap-4 md:gap-8">
+                <div className="flex flex-col gap-4 md:gap-8 relative overflow-hidden">
+                    {/* Gradient Overlays for smooth edges (Cheaper than CSS mask-image) */}
+                    <div className="absolute inset-y-0 left-0 w-20 md:w-40 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none" />
+                    <div className="absolute inset-y-0 right-0 w-20 md:w-40 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none" />
+
                     {/* First Line: Left to Right */}
-                    <div
-                        className="w-full overflow-hidden flex items-center"
-                        style={{
-                            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-                            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-                        }}
-                    >
-                        <div className="animate-marquee flex items-center gap-16 md:gap-32" style={{ transform: 'translate3d(0,0,0)' }}>
+                    <div className="w-full overflow-hidden flex items-center">
+                        <div className="animate-marquee flex items-center gap-16 md:gap-32" style={{ transform: 'translate3d(0,0,0)', willChange: 'transform' }}>
                             {[...logos, ...logos].map((logo, idx) => (
                                 <div key={idx} className="flex items-center justify-center shrink-0 group/logo cursor-default">
-                                    <div className="h-5 md:h-7 w-auto flex items-center justify-center transition-all duration-500 hover:scale-110">
+                                    <div className="h-5 md:h-7 w-auto flex items-center justify-center transition-transform duration-500 hover:scale-110">
                                         <svg
                                             viewBox={logo.logo.viewBox}
-                                            className="h-full w-auto fill-current text-slate-400/50 group-hover/logo:text-inherit transition-colors duration-500"
+                                            className="h-full w-auto fill-current text-slate-400/40 group-hover/logo:text-inherit transition-colors duration-500"
                                             style={{
                                                 color: logo.color.includes('#') ? logo.color.match(/#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}/)?.[0] : undefined,
                                                 maxWidth: '100px'
@@ -225,20 +223,14 @@ const TalentHero = () => {
                     </div>
 
                     {/* Second Line: Right to Left (Reverse) */}
-                    <div
-                        className="w-full overflow-hidden flex items-center"
-                        style={{
-                            maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
-                            WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
-                        }}
-                    >
-                        <div className="animate-marquee-reverse flex items-center gap-16 md:gap-32" style={{ transform: 'translate3d(0,0,0)' }}>
+                    <div className="w-full overflow-hidden flex items-center">
+                        <div className="animate-marquee-reverse flex items-center gap-16 md:gap-32" style={{ transform: 'translate3d(0,0,0)', willChange: 'transform' }}>
                             {[...logos, ...logos].reverse().map((logo, idx) => (
                                 <div key={idx} className="flex items-center justify-center shrink-0 group/logo cursor-default">
-                                    <div className="h-5 md:h-7 w-auto flex items-center justify-center transition-all duration-500 hover:scale-110">
+                                    <div className="h-5 md:h-7 w-auto flex items-center justify-center transition-transform duration-500 hover:scale-110">
                                         <svg
                                             viewBox={logo.logo.viewBox}
-                                            className="h-full w-auto fill-current text-slate-400/50 group-hover/logo:text-inherit transition-colors duration-500"
+                                            className="h-full w-auto fill-current text-slate-400/40 group-hover/logo:text-inherit transition-colors duration-500"
                                             style={{
                                                 color: logo.color.includes('#') ? logo.color.match(/#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}/)?.[0] : undefined,
                                                 maxWidth: '100px'
