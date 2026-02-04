@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, ArrowUpRight, ArrowDownRight, Zap, Target, BarChart3, TrendingUp, Cpu } from 'lucide-react';
 
 const mockSignals = [
-    { id: 1, type: 'BEARISH', asset: 'RELIANCE', signal: 'Liquidity Shock (Order Flow Imbalance)', strength: 'High', timestamp: '14:23:01', yield: '-2.4%' },
-    { id: 2, type: 'BULLISH', asset: 'HDFCBANK', signal: 'Momentum Drift Shift (Brownian Drift Change)', strength: 'Medium', timestamp: '14:22:45', yield: '+1.2%' },
-    { id: 3, type: 'NEUTRAL', asset: 'TCS', signal: 'Volatility Regime Shift (SABR Skew Expansion)', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
-    { id: 4, type: 'BULLISH', asset: 'INFY', signal: 'Volatility Compression (Variance Contraction)', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
-    { id: 5, type: 'BULLISH', asset: 'ICICIBANK', signal: 'Mean Reversion Trigger (Stat Arb Signal)', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
+    { id: 1, type: 'BEARISH', asset: 'RELIANCE', signal: 'Liquidity Shock (ORDER FLOW IMBALANCE)', strength: 'High', timestamp: '14:23:01', yield: '-2.4%' },
+    { id: 2, type: 'BULLISH', asset: 'HDFCBANK', signal: 'Momentum Drift Shift (BROWNIAN DRIFT CHANGE)', strength: 'Medium', timestamp: '14:22:45', yield: '+1.2%' },
+    { id: 3, type: 'NEUTRAL', asset: 'TCS', signal: 'Volatility Regime Shift (SABR SKEW EXPANSION)', strength: 'Low', timestamp: '14:21:12', yield: '0.0%' },
+    { id: 4, type: 'BULLISH', asset: 'INFY', signal: 'Volatility Compression (VARIANCE CONTRACTION)', strength: 'High', timestamp: '14:20:55', yield: '+0.8%' },
+    { id: 5, type: 'BULLISH', asset: 'ICICIBANK', signal: 'Mean Reversion Trigger (STAT ARB SIGNAL)', strength: 'Medium', timestamp: '14:19:30', yield: '+1.5%' }
 ];
 
 const tickers = [
@@ -124,7 +124,7 @@ const TalentIntelligenceFeed = () => {
                                 </div>
                             </div>
 
-                            <div className="p-2 md:p-6 space-y-1.5 md:space-y-3 h-[380px] md:h-[520px] overflow-hidden relative" style={{ transform: 'translateZ(0)' }}>
+                            <div className="p-3 md:p-8 space-y-3 md:space-y-6 h-[320px] md:h-[650px] overflow-hidden relative" style={{ transform: 'translateZ(0)' }}>
                                 <AnimatePresence mode="popLayout">
                                     {signals.slice(0, 5).map((signal) => (
                                         <motion.div
@@ -133,7 +133,7 @@ const TalentIntelligenceFeed = () => {
                                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                             animate={{ opacity: 1, scale: 1, y: 0 }}
                                             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                                            className="p-2.5 md:p-5 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all w-full"
+                                            className="p-2.5 md:p-6 rounded-xl md:rounded-3xl glass-100 flex items-center justify-between group hover:bg-black/[0.02] transition-all w-full border border-black/5"
                                         >
                                             <div className="flex items-center gap-3 md:gap-6 text-left">
                                                 <div className={`w-7 h-7 md:w-12 md:h-12 rounded-lg md:rounded-2xl flex items-center justify-center ${signal.type === 'BULLISH' ? 'bg-brand-orange/10 text-brand-orange' :
@@ -145,7 +145,13 @@ const TalentIntelligenceFeed = () => {
                                                 </div>
                                                 <div>
                                                     <h4 className="font-serif text-[9px] md:text-lg text-black tracking-tight group-hover:text-fade transition-all mono-data uppercase font-medium leading-none">{signal.asset}</h4>
-                                                    <p className="text-[5.5px] md:text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wide leading-none">{signal.signal}</p>
+                                                    <p className="text-[5.5px] md:text-[11px] text-slate-500 font-medium mt-0.5 uppercase tracking-wide leading-none">
+                                                        {signal.signal.split(/(\(.*?\))/).map((part, i) =>
+                                                            part.startsWith('(') && part.endsWith(')')
+                                                                ? <span key={i} className="font-bold text-slate-900">{part}</span>
+                                                                : part
+                                                        )}
+                                                    </p>
                                                 </div>
                                             </div>
                                             <div className="text-right flex items-center gap-3 md:gap-8">
@@ -166,9 +172,9 @@ const TalentIntelligenceFeed = () => {
 
 
                             <div className="border-t border-black/5 bg-white/60 backdrop-blur-md py-4 ticker-container">
-                                <div className="ticker-content gap-16">
+                                <div className="ticker-content gap-8 md:gap-16">
                                     {[...tickers, ...tickers].map((ticker, i) => (
-                                        <div key={i} className="flex items-center gap-3 px-6 border-r border-black/5 min-w-[150px]">
+                                        <div key={i} className="flex items-center gap-3 px-6 border-r border-black/5 min-w-[120px] md:min-w-[150px]">
                                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mono-data">{ticker.label}:</span>
                                             <span className="text-[10px] font-bold text-brand-orange mono-data">{ticker.val}</span>
                                         </div>
