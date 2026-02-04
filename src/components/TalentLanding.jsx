@@ -81,7 +81,7 @@ const TalentLanding = ({ setView }) => {
                 </SectionReveal>
             </main>
 
-            <TalentFooter />
+            <TalentFooter setView={setView} />
         </div>
     );
 };

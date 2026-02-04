@@ -184,7 +184,7 @@ const TalentWhoWeAre = ({ setView }) => {
             <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4">
                 <div className="container max-w-7xl mx-auto px-6 flex justify-between items-center">
                     <button
-                        onClick={() => window.location.href = '/'}
+                        onClick={() => setView('landing')}
                         className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-orange transition-colors"
                     >
                         <ArrowLeft size={14} /> Back to Terminal
